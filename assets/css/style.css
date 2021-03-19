@@ -1,0 +1,276 @@
+/*======================================================*/
+/*--------------------------------------------------------
+
+Usually, the font size in HTML is 16px or 1rem by default ( 16px = 1rem ).  
+Here in HTML, I have given Font Size 10px by default and here I have used REM as a Unit.  
+10px = 1rem.  
+
+I will give some more examples of px and rem, for example:-------
+1px   	=   .1rem
+2px		=	.2rem
+3px		=	.3rem
+4px		=	.4rem
+5px		=	.5rem
+6px 	= 	.6rem
+7px 	= 	.7rem
+8px 	= 	.8rem
+9px   	=   .9rem 
+10px  	=   1rem 
+15px 	=  	1.5rem 
+18px 	=  	1.8rem 
+20px 	= 	2rem
+27px 	= 	2.7rem;
+30px 	=  	3rem 
+35px 	=  	3.5rem
+
+----------------------------------------------------------*/
+/*=========================================================*/
+
+
+/*===================*/
+/*-- VARIABLES --*/
+/*===================*/
+:root {
+	--heading: 4rem;
+	--ssub-heading: 2.5rem;
+	--paragraph: 1.6rem;
+	--primary-color: #00008B;
+	--secondary-color: #FFFFFF;
+}
+
+/*===================*/
+/*-- VARIABLES --*/
+/*===================*/
+
+html {
+	font-size: 62.5%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	scroll-behavior: smooth;
+}
+
+body {
+	background: #eee;
+	font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 1.8;
+	overflow-x: hidden;
+}
+
+/*==============================*/
+/*-- REUSEBLE COMPONENTS --*/
+/*==============================*/
+.bg__color {
+	background: #eee;
+}
+
+.heading {
+	font-size: var(--heading);
+	font-family: ;
+	color: var(--primary-color);
+}
+
+.sub__heading {
+	font-size: var(--sub-heading);
+	font-family: ;
+	color: var(--primary-color);
+}
+
+.paragraph {
+	font-size: var(--paragraph);
+	font-family: ;
+	color: var(--primary-color);
+}
+
+.btn__primary {
+	padding: 1rem 1.5rem;
+	background: var(--primary-color);
+	color: var(--secondary-color);
+	font-size: var(--paragraph);
+}
+
+.btn__secondary {
+	padding: 1rem 1.5rem;
+	background: var(--primary-color);
+	color: var(--secondary-color);
+	font-size: var(--paragraph);
+}
+
+.btn__primary:hover {
+	background: #000;
+	color: var(--secondary-color);
+}
+
+.btn__secondary:hover {
+	background: #000;
+	color: var(--secondary-color);
+}
+
+.input-group-text {
+    padding: 8px 12px;
+    font-size: 14px;
+	height: 38px;
+}
+
+/*==============================*/
+/*-- REUSEBLE COMPONENTS --*/
+/*==============================*/
+section {
+	overflow: hidden; /* for responsive table*/
+}
+
+.inv-info {
+	padding: 20px;
+	position: relative;
+	background: #fff;
+	border: 1px solid #ccc;
+	-webkit-box-shadow: 1px 1px 0 rgb(0 0 0 / 10%), 3px 3px 0 #fff, 4px 4px 0 rgb(0 0 0 / 13%), 6px 6px 0 #fff, 7px 7px 0 rgb(0 0 0 / 15%);
+	-moz-box-shadow: 1px 1px 0 rgba(0,0,0,.1),3px 3px 0 #fff,4px 4px 0 rgba(0,0,0,.125),6px 6px 0 #fff,7px 7px 0 rgba(0,0,0,.15);
+	box-shadow: 1px 1px 0 rgb(0 0 0 / 10%), 3px 3px 0 #fff, 4px 4px 0 rgb(0 0 0 / 13%), 6px 6px 0 #fff, 7px 7px 0 rgb(0 0 0 / 15%);
+}
+
+.inv-file-input,
+.inv-info input,
+.inv-info textarea {
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,.1);
+	font-size: 14px;
+	color: #b7b7b7 !important;
+}
+
+::placeholder {
+	font-size: 14px;
+	color: #b7b7b7 !important;
+}
+
+.inv-file-input {
+    position: relative;
+	cursor: pointer;
+	width: 200px;
+    height: 130px;
+    text-align: center;
+	font-size: 16px;
+	background: #f5f5f5;
+}
+
+.inv-file-input label {
+    margin: 0;
+	color: #7F7F7F;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.inv-file-input input {
+    opacity: 0;
+    z-index: 9;
+	cursor: pointer;
+}
+
+.inv-title {
+    overflow: hidden;
+    margin-bottom: 45px;
+}
+.inv-number {
+    max-width: 170px;
+    float: right;
+}
+
+input[type="text"].inv-num-input::placeholder {
+	text-align: right;
+	cursor: text;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* button#dropdownMenuButton {
+    position: absolute;
+    right: 0;
+    top: -25px;
+    background: transparent;
+    color: #000;
+    border: none;
+} */
+
+input#tax-input,
+input#discount-input,
+input#shipping-input {
+	border-right: 0;
+	padding-left: 30px;
+}
+
+input#tax-input:focus,
+input#discount-input:focus,
+input#shipping-input:focus{
+	outline: none;
+	box-shadow: none;
+	border-color: rgba(0,0,0,.1);
+}
+
+.tax-type-dollar,
+.discount-type-dollar,
+.shipping-type-dollar {
+    position: absolute;
+    left: 3px;
+	z-index: 9;
+	border-color: transparent;
+}
+
+.tax-type-prcent,
+.discount-type-prcent,
+.shipping-type-prcent {
+	border-color: rgba(0,0,0,.1);
+	padding-right: 2px;
+    padding-left: 2px;
+}
+
+.tax .input-group-text,
+.discount .input-group-text,
+.shipping .input-group-text {
+	background: transparent;
+	border-left: 0;
+	border-right: 0;
+}
+
+button.tax-type-btn,
+button.discount-type-btn,
+button.shipping-type-btn {
+	border-top: 1px solid #ced4da;
+	border-bottom: 1px solid #ced4da;
+	border-right: 1px solid #ced4da;
+	border-left: 1px solid transparent;
+	background-color:transparent;
+	
+}
+
+
+button.tax-type-btn:focus,
+button.discount-type-btn:focus,
+button.shipping-type-btn:focus {
+	outline: none;
+	box-shadow: none;
+	
+}
+
+ul#tax-type-selector li,
+ul#discount-type-selector li,
+ul#shipping-type-selector li{
+	cursor: pointer !important;
+}
+
+.active {
+	font-weight: bold;
+}
