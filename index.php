@@ -5,7 +5,7 @@
 <!---- START MAIN AREA ---->
 <main>
 	<!--========================== START  SECTION ==========================-->
-	<section class="">
+	<section class="pb-3">
 		<div class="container">
 			<form action="" class="invoice" enctype="multipart/formdata">
             <div class="row">
@@ -14,8 +14,14 @@
                      <div class="col">
                         <div class="inv-info__contact">
                            <div class="inv-file-input form-group">
-                              <input type="file" name="logo" class="inv-file-input">
+                              <input type="file" accept="image/*" name="logo" class="inv-file-input">
                               <label class="inv-file-label" for="customFile">+ Add Your Logo</label>
+                              <img id="preview">
+                           </div>
+                           <div>
+                           <input type="file" name="file" id="file" accept="image/*" onchange="previewImage();">
+ 
+ <img id="preview">
                            </div>
                            <div class="form-group">
                               <textarea name="customer_msg" rows="2" class="form-control" placeholder="Who is this invoice from? (required)"></textarea>
@@ -146,7 +152,7 @@
                                  </td>
                                  <td width="20"></td>
                               </tr>
-                              <tr>
+                              <tr id="" class="input-type-row d-none">
                                  <td width="195" align="right"><label class="m-0 mr-4">Discount</label></td>
                                  <td width="195" align="right">
                                     <div class="input-group discount mb-3">
@@ -167,9 +173,9 @@
                                        </div>
                                     </div>
                                  </td>
-                                 <td width="20"></td>
+                                 <td width="20"><button type="button" name="remove" id="" class="btn delete-btn">&times;</button></td>
                               </tr>
-                              <tr>
+                              <tr id="" class="input-type-row d-none">
                                  <td width="195" align="right"><label class="m-0 mr-4">Shipping</label></td>
                                  <td width="195" align="right">
                                     <div class="input-group shipping mb-3">
@@ -181,7 +187,7 @@
                                           <span class="input-group-text shipping-type-prcent">%</span>
                                        </div>
                                        <div id="shipping-type" class="input-group-append">
-                                          <button class="btn dropdown-toggle shipping-type-btn" type="button" id="shipping-type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          <button class="btn dropdown-toggle tax-type-btn" type="button" id="shipping-type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                           </button>
                                           <ul class="dropdown-menu dropdown-menu-right" id="shipping-type-selector" aria-labelledby="dropdownMenuButton">
                                              <li class="dropdown-item">Flat($)</li>
@@ -190,24 +196,56 @@
                                        </div>
                                     </div>
                                  </td>
-                                 <td width="20"></td>
+                                 <td width="20"><button type="button" name="remove" id="" class="btn delete-btn">&times;</button></td>
                               </tr>
                            </table>
                         </div>
-                        <table>
+                        <table align="right">
                            <tr>
                               <td></td>
                               <td width="195" align="right">
-                                 <button type="button" id="discount" class="btn btn-primary mb-4">+ Discount</button>
-                                 <button type="button" id="shipping" class="btn btn-primary mb-4">+ Shipping</button>
+                                 <button type="button" id="" class="btn btn-primary show-btn mb-4">+ Discount</button>
+                                 <button type="button" id="" class="btn btn-primary show-btn mb-4">+ Shipping</button>
                               </td>
+                              <td width="20"></td>
+                           </tr>
+                        </table>
+                        <table width="100%">
+                           <tr>
+                              <td width="195" align="right"><label class="mr-4">Total</label></td>
+                              <td width="195" align="right"><span class="mb-3">$0.00</span></td>
+                              <td width="20"></td>
+                           </tr>
+                           <tr>
+                              <td width="195" align="right"><label class="m-0 mr-4">Amount Paid</label></td>
+                              <td width="195" align="right">
+                                 <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                       <span class="input-group-text" id="payment-input-text">$</span>
+                                    </div>
+                                    <input type="number" class="payment-input form-control" placeholder="0" >
+                                 </div>
+                              </td>
+                              <td width="20"></td>
+                           </tr>
+                           <tr>
+                              <td width="195" align="right"><label class="m-0 mr-4">Balance Due</label></td>
+                              <td width="195" align="right"><span class="mb-3">$0.00</span></td>
+                              <td width="20"></td>
                            </tr>
                         </table>
                      </div>
                   </div>
                </div>
                <div class="col-md-3 col-sm-12">
-                  <p>safjahsgjh</p>
+                  <div class="sidebar">
+                     <button type="button" class="btn btn-primary btn-lg w-100 mb-4"> Send Invoice</button>
+                     <button type="button" class="btn btn-link btn-block btn-lg w-100 mb-4">Download Invoice</button>
+                     <hr class="mb-4">
+                     <div class="my-invoic-btn text-center">
+                        <a href="#">My Invoices <span class="my-inv-num">0</span></a>
+                     </div>
+                  </div>
                </div>
             </div>
          </form>

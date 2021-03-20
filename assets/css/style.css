@@ -214,7 +214,8 @@ input#shipping-input {
 
 input#tax-input:focus,
 input#discount-input:focus,
-input#shipping-input:focus{
+input#shipping-input:focus,
+input.payment-input:focus {
 	outline: none;
 	box-shadow: none;
 	border-color: rgba(0,0,0,.1);
@@ -273,4 +274,28 @@ ul#shipping-type-selector li{
 
 .active {
 	font-weight: bold;
+}
+
+
+.delete-btn {
+    border: none;
+    color: blue;
+    background: transparent;
+    font-weight: 700;
+    font-size: 24px;
+    opacity: 0;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+}
+
+span#payment-input-text {
+    background: transparent;
+	border-color: rgba(0,0,0,.1);
+    border-right-color: transparent;
+}
+
+input.payment-input {
+    border-left-color: transparent;
 }
