@@ -170,6 +170,34 @@ section {
 	cursor: pointer;
 }
 
+.preview {
+    position: relative;
+    max-width: 200px;
+    max-height: 150px;
+    margin-bottom: 15px;
+}
+
+.preview-img {
+	max-width: 100%;
+	height: auto;
+}
+
+.close-img {
+    cursor: pointer;
+    font-size: 18px;
+    background: #000;
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #fff;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.close-img:hover {
+	background: #4B94D9;
+}
+
 .inv-title {
     overflow: hidden;
     margin-bottom: 45px;

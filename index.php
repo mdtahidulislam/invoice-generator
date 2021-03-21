@@ -14,14 +14,12 @@
                      <div class="col">
                         <div class="inv-info__contact">
                            <div class="inv-file-input form-group">
-                              <input type="file" accept="image/*" name="logo" class="inv-file-input">
+                              <input type="file" name="logo" class="inv-file-input">
                               <label class="inv-file-label" for="customFile">+ Add Your Logo</label>
-                              <img id="preview">
                            </div>
-                           <div>
-                           <input type="file" name="file" id="file" accept="image/*" onchange="previewImage();">
- 
- <img id="preview">
+                           <div class="preview d-none">
+                              <img class="preview-img" src="">
+                              <i class="fas fa-times close-img"></i>
                            </div>
                            <div class="form-group">
                               <textarea name="customer_msg" rows="2" class="form-control" placeholder="Who is this invoice from? (required)"></textarea>
@@ -85,15 +83,30 @@
                                  </tr>
                               </thead>
                               <tbody>
-                                 <tr>
+                                 <tr id="row0" class="single-row">
                                     <td width="500">
-                                       <input type="text" name="item_name[]" placeholder="Description of service or product..." class="form-control" required>
+                                       <input type="text" name="item_name[]" id="item-name" placeholder="Description of service or product..." class="form-control" required>
                                     </td>
                                     <td width="150">
-                                       <input type="number" name="item_qty[]" class="form-control" required autocomplete="off" placeholder="Quantity">
+                                       <input type="number" name="item_qty[]" id="item-qty" class="form-control" required autocomplete="off" placeholder="Quantity">
                                     </td>
                                     <td width="200">
-                                       <input type="number" name="item_rate[]" class="form-control" placeholder="Rate" required>
+                                       <input type="number" name="item_rate[]" id="item-rate" class="form-control" placeholder="Rate" required>
+                                    </td>
+                                    <td width="150" align="right">
+                                       <span class="amount">$0.00</span>
+                                    </td>
+                                    <td></td>
+                                 </tr>
+                                 <tr id="row0" class="single-row">
+                                    <td width="500">
+                                       <input type="text" name="item_name[]" id="item-name" placeholder="Description of service or product..." class="form-control" required>
+                                    </td>
+                                    <td width="150">
+                                       <input type="number" name="item_qty[]" id="item-qty" class="form-control" required autocomplete="off" placeholder="Quantity">
+                                    </td>
+                                    <td width="200">
+                                       <input type="number" name="item_rate[]" id="item-rate" class="form-control" placeholder="Rate" required>
                                     </td>
                                     <td width="150" align="right">
                                        <span class="amount">$0.00</span>

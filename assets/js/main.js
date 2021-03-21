@@ -1,10 +1,30 @@
 $(document).ready(function(){
     // file name show
     $('.inv-file-input').on('change',  function(e){
-        let fileName = $(this).val().split('\\').pop();
-        $(this).siblings('.inv-file-label').addClass('selected').html(fileName);
+        // show slected file name as label
+        //let fileName = $(this).val().split('\\').pop();
+        //$(this).siblings('.inv-file-label').addClass('selected').html(fileName);
+        // show image preview
+        const imgFile = this.files[0];
+        if (imgFile) {
+            let reader = new FileReader();
+            reader.onload = (e)=>{
+                $('.preview-img').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(imgFile);
+        }
+        $('.inv-file-input').addClass('d-none');
+        $('.preview').removeClass('d-none');
+
+        // close image preview
+        $('.close-img').on('click', ()=>{
+            $('.preview').addClass('d-none');
+            $('.inv-file-input').removeClass('d-none');
+            $('.inv-file-input').val('');
+            //$('.inv-file-input').siblings('.inv-file-label').addClass('selected').html('+ Add Your Logo');
+        });
     });
-    
+
     /* ==========================================================
                         For tax dropdown type
     =========================================================== */
@@ -35,6 +55,7 @@ $(document).ready(function(){
             }
         });
     });
+
     /* ==========================================================
             For Discount and shipping row show/hide
     =========================================================== */
@@ -94,6 +115,7 @@ $(document).ready(function(){
             }
         });
     });
+
     /* ==========================================================
                         For Shipping dropdown type
     =========================================================== */
@@ -125,24 +147,25 @@ $(document).ready(function(){
             }
         });
     });
+
+    /* ==========================================================
+                    calculation
+    =========================================================== */
+    $('table input').on('input', function() {
+        var $tr = $(this).closest('tr'); // get tr which contains the input
+        var tot = 0; // variable to sore sum
+        $('input', $tr).each(function() { // iterate over inputs
+            tot += Number($(this).val()) || 0; // parse and add value, if NaN then add 0
+        });
+        $('td:last', $tr).text(tot); // update last column value
+    }).trigger('input'); // trigger input to set initial value in column
+
+    
+
 });
 
 
 
-
-
-function previewImage() {
-    var file = document.getElementById("file").files;
-    if (file.length > 0) {
-        var fileReader = new FileReader();
-
-        fileReader.onload = function (event) {
-            document.getElementById("preview").setAttribute("src", event.target.result);
-        };
-
-        fileReader.readAsDataURL(file[0]);
-    }
-}
 
 
 
