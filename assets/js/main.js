@@ -38,7 +38,7 @@ $(document).ready(function(){
     let taxType = taxTypeDiv.querySelectorAll('.dropdown-item');
     taxType.forEach(taxTypeselector => {
         taxTypeselector.addEventListener('click', function(){
-            let selectedtype = this.innerHTML;
+            var selectedtype = this.innerHTML;
             let taxInput = document.querySelector('#tax-input');
             let taxTypePercent = document.querySelector('.tax-type-prcent');
             let taxTypeDollar = document.querySelector('.tax-type-dollar');
@@ -151,14 +151,86 @@ $(document).ready(function(){
     /* ==========================================================
                     calculation
     =========================================================== */
-    $('table input').on('input', function() {
-        var $tr = $(this).closest('tr'); // get tr which contains the input
-        var tot = 0; // variable to sore sum
-        $('input', $tr).each(function() { // iterate over inputs
-            tot += Number($(this).val()) || 0; // parse and add value, if NaN then add 0
+    $(".txtMult input").keyup(multInputs);
+    function multInputs() {
+        var mult = 0;
+        var taxpercent;
+        var taxFlat;
+        var dispercent;
+        var disFlat;
+        var shippercent;
+        var shipFlat;
+        // for each row:
+        $("tr.txtMult").each(function () {
+            // get the values from this row:
+            var $val1 = $('.val1', this).val();
+            var $val2 = $('.val2', this).val();
+            var $total = ($val1 * 1) * ($val2 * 1)
+            $('.multTotal',this).text($total);
+            mult += $total;
         });
-        $('td:last', $tr).text(tot); // update last column value
-    }).trigger('input'); // trigger input to set initial value in column
+        $(".subtotal").text(mult);
+        //var $tax = $('.tax-input');
+        
+        // tax calculation
+        $('.tax-input').keyup(()=>{
+            var taxVal = $('.tax-input').val();
+            var activeType = $('li.active');
+            activeType.each(function(){
+                var $activeText = $('ul#tax-type-selector li.active').text();
+                if ($activeText === 'Percent(%)') {
+                    taxpercent = ( taxVal / 100) ;
+                } else if ($activeText === 'Flat($)'){
+                    taxFlat  =  parseInt(taxVal);
+                } 
+            });
+        });
+        // discount calculation
+        $('.discount-input').keyup(()=>{
+            var disVal = $('.discount-input').val();
+            var activeType = $('li.active');
+            activeType.each(function(){
+                var $activeText = $('ul#discount-type-selector li.active').text();
+                if ($activeText === 'Percent(%)') {
+                    dispercent = (disVal / 100);
+                } else if ($activeText === 'Flat($)'){
+                    disFlat = parseInt(disVal);
+                } 
+            });
+        });
+        // shipping calculation
+        $('.shipping-input').keyup(()=>{
+            var shipVal = $('.shipping-input').val();
+            var activeType = $('li.active');
+            activeType.each(function(){
+                var $activeText = $('ul#shipping-type-selector li.active').text();
+                if ($activeText === 'Percent(%)') {
+                    shippercent = (shipVal / 100);
+                } else if ($activeText === 'Flat($)'){
+                    shipFlat = + parseInt(shipVal);
+                } 
+            });
+        });
+
+        var tax = $('.tax');
+        var dis = $('.discount');
+        var ship = $('.shipping');
+        if (tax) {
+            
+            console.log(taxpercent);
+        }
+        
+        // if (!$tax.val()) {
+        //     console.log('no value');
+        //     totalWithTax = mult;
+        //     $(".total").text(totalWithTax);
+        // } else if ($tax.val()) {
+        //     var $taxDiv = $('.tax');
+        //     console.log($taxDiv);
+        // }
+        //var totalWithTax = mult + tax;
+        //$(".total").text(totalWithTax);
+    }
 
     
 

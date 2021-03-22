@@ -83,33 +83,33 @@
                                  </tr>
                               </thead>
                               <tbody>
-                                 <tr id="row0" class="single-row">
+                                 <tr id="row0" class="single-ro txtMult">
                                     <td width="500">
-                                       <input type="text" name="item_name[]" id="item-name" placeholder="Description of service or product..." class="form-control" required>
+                                       <input type="text" name="item_name[]" id="item-name" placeholder="Description of service or product..." class="item-name form-control" required>
                                     </td>
                                     <td width="150">
-                                       <input type="number" name="item_qty[]" id="item-qty" class="form-control" required autocomplete="off" placeholder="Quantity">
+                                       <input type="number" name="item_qty[]" id="item-qty" class="val1 item-qty form-control" required autocomplete="off" placeholder="Quantity">
                                     </td>
                                     <td width="200">
-                                       <input type="number" name="item_rate[]" id="item-rate" class="form-control" placeholder="Rate" required>
+                                       <input type="number" name="item_rate[]" id="item-rate" class="val2 item-rate form-control" placeholder="Rate" required>
                                     </td>
                                     <td width="150" align="right">
-                                       <span class="amount">$0.00</span>
+                                       <span class="amount multTotal">$0.00</span>
                                     </td>
                                     <td></td>
                                  </tr>
-                                 <tr id="row0" class="single-row">
+                                 <tr id="row0" class="single-ro txtMult">
                                     <td width="500">
-                                       <input type="text" name="item_name[]" id="item-name" placeholder="Description of service or product..." class="form-control" required>
+                                       <input type="text" name="item_name[]" id="item-name" placeholder="Description of service or product..." class="item-name form-control" required>
                                     </td>
                                     <td width="150">
-                                       <input type="number" name="item_qty[]" id="item-qty" class="form-control" required autocomplete="off" placeholder="Quantity">
+                                       <input type="number" name="item_qty[]" id="item-qty" class="val1 item-qty form-control" required autocomplete="off" placeholder="Quantity">
                                     </td>
                                     <td width="200">
-                                       <input type="number" name="item_rate[]" id="item-rate" class="form-control" placeholder="Rate" required>
+                                       <input type="number" name="item_rate[]" id="item-rate" class="val2 item-rate form-control" placeholder="Rate" required>
                                     </td>
                                     <td width="150" align="right">
-                                       <span class="amount">$0.00</span>
+                                       <span class="amount multTotal">$0.00</span>
                                     </td>
                                     <td></td>
                                  </tr>
@@ -139,14 +139,14 @@
                            <table id="rates_field">
                               <tr>
                                  <td width="195" align="right"><label class="mr-4">Subtotal</label></td>
-                                 <td width="195" align="right"><span class="mb-3">$0.00</span></td>
+                                 <td width="195" align="right"><span class="mb-3 subtotal">$0.00</span></td>
                                  <td width="20"></td>
                               </tr>
                               <tr>
                                  <td width="195" align="right"><label class="mr-4">Tax</label></td>
                                  <td width="195" align="right">
                                     <div class="input-group tax mb-3">
-                                       <input type="number" name="tax" id="tax-input" dir="rtl" placeholder="0" autocomplete="off" class="form-control">
+                                       <input type="number" name="tax" id="tax-input" dir="rtl" placeholder="0" autocomplete="off" class="tax-input form-control">
                                        <div class="input-group-prepend ">
                                           <span class="input-group-text tax-type-dollar d-none">$</span>
                                        </div>
@@ -169,7 +169,7 @@
                                  <td width="195" align="right"><label class="m-0 mr-4">Discount</label></td>
                                  <td width="195" align="right">
                                     <div class="input-group discount mb-3">
-                                       <input type="number" name="discount" id="discount-input" dir="rtl" placeholder="0" autocomplete="off" class="form-control">
+                                       <input type="number" name="discount" id="discount-input" dir="rtl" placeholder="0" autocomplete="off" class="discount-input form-control">
                                        <div class="input-group-prepend ">
                                           <span class="input-group-text discount-type-dollar d-none">$</span>
                                        </div>
@@ -192,7 +192,7 @@
                                  <td width="195" align="right"><label class="m-0 mr-4">Shipping</label></td>
                                  <td width="195" align="right">
                                     <div class="input-group shipping mb-3">
-                                       <input type="number" name="shipping" id="shipping-input" dir="rtl" placeholder="0" autocomplete="off" class="form-control">
+                                       <input type="number" name="shipping" id="shipping-input" dir="rtl" placeholder="0" autocomplete="off" class="shipping-input form-control">
                                        <div class="input-group-prepend ">
                                           <span class="input-group-text shipping-type-dollar d-none">$</span>
                                        </div>
@@ -226,7 +226,7 @@
                         <table width="100%">
                            <tr>
                               <td width="195" align="right"><label class="mr-4">Total</label></td>
-                              <td width="195" align="right"><span class="mb-3">$0.00</span></td>
+                              <td width="195" align="right"><span class="mb-3 total">$0.00</span></td>
                               <td width="20"></td>
                            </tr>
                            <tr>
