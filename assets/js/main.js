@@ -147,19 +147,20 @@ $(document).ready(function(){
             }
         });
     });
+});
 
-    /* ==========================================================
+
+/* ==========================================================
                     calculation
-    =========================================================== */
+=========================================================== */
+    
+$(document).ready(function(){
+    
     $(".txtMult input").keyup(multInputs);
     function multInputs() {
+        
         var mult = 0;
-        var taxpercent;
-        var taxFlat;
-        var dispercent;
-        var disFlat;
-        var shippercent;
-        var shipFlat;
+        var taxVal = 0;
         // for each row:
         $("tr.txtMult").each(function () {
             // get the values from this row:
@@ -170,7 +171,6 @@ $(document).ready(function(){
             mult += $total;
         });
         $(".subtotal").text(mult);
-        //var $tax = $('.tax-input');
         
         // tax calculation
         $('.tax-input').keyup(()=>{
@@ -179,46 +179,61 @@ $(document).ready(function(){
             activeType.each(function(){
                 var $activeText = $('ul#tax-type-selector li.active').text();
                 if ($activeText === 'Percent(%)') {
-                    taxpercent = ( taxVal / 100) ;
+                    $taxpercent = ( taxVal / 100) ;
+                    mult += $taxpercent;
+                    console.log(mult);
                 } else if ($activeText === 'Flat($)'){
                     taxFlat  =  parseInt(taxVal);
                 } 
             });
         });
+        
+        // $('.tax-input').keyup(()=>{
+        //     var taxVal = $('.tax-input').val();
+        //     var activeType = $('li.active');
+        //     activeType.each(function(){
+        //         var $activeText = $('ul#tax-type-selector li.active').text();
+        //         if ($activeText === 'Percent(%)') {
+        //             $taxpercent = ( taxVal / 100) ;
+        //             mult += $taxpercent;
+        //             console.log(mult);
+        //         } else if ($activeText === 'Flat($)'){
+        //             taxFlat  =  parseInt(taxVal);
+        //         } 
+        //     });
+        // });
+        
         // discount calculation
-        $('.discount-input').keyup(()=>{
-            var disVal = $('.discount-input').val();
-            var activeType = $('li.active');
-            activeType.each(function(){
-                var $activeText = $('ul#discount-type-selector li.active').text();
-                if ($activeText === 'Percent(%)') {
-                    dispercent = (disVal / 100);
-                } else if ($activeText === 'Flat($)'){
-                    disFlat = parseInt(disVal);
-                } 
-            });
-        });
+        // $('.discount-input').keyup(()=>{
+        //     var disVal = $('.discount-input').val();
+        //     var activeType = $('li.active');
+        //     activeType.each(function(){
+        //         var $activeText = $('ul#discount-type-selector li.active').text();
+        //         if ($activeText === 'Percent(%)') {
+        //             dispercent = (disVal / 100);
+        //         } else if ($activeText === 'Flat($)'){
+        //             disFlat = parseInt(disVal);
+        //         } 
+        //     });
+        // });
         // shipping calculation
-        $('.shipping-input').keyup(()=>{
-            var shipVal = $('.shipping-input').val();
-            var activeType = $('li.active');
-            activeType.each(function(){
-                var $activeText = $('ul#shipping-type-selector li.active').text();
-                if ($activeText === 'Percent(%)') {
-                    shippercent = (shipVal / 100);
-                } else if ($activeText === 'Flat($)'){
-                    shipFlat = + parseInt(shipVal);
-                } 
-            });
-        });
+        // $('.shipping-input').keyup(()=>{
+        //     var shipVal = $('.shipping-input').val();
+        //     var activeType = $('li.active');
+        //     activeType.each(function(){
+        //         var $activeText = $('ul#shipping-type-selector li.active').text();
+        //         if ($activeText === 'Percent(%)') {
+        //             shippercent = (shipVal / 100);
+        //         } else if ($activeText === 'Flat($)'){
+        //             shipFlat = + parseInt(shipVal);
+        //         } 
+        //     });
+        // });
 
-        var tax = $('.tax');
-        var dis = $('.discount');
-        var ship = $('.shipping');
-        if (tax) {
+        
             
-            console.log(taxpercent);
-        }
+            //console.log(taxpercent);
+        
         
         // if (!$tax.val()) {
         //     console.log('no value');
@@ -231,10 +246,9 @@ $(document).ready(function(){
         //var totalWithTax = mult + tax;
         //$(".total").text(totalWithTax);
     }
-
-    
-
 });
+
+
 
 
 
