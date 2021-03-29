@@ -235,7 +235,8 @@ input[type=number] {
 
 input#tax-input,
 input#discount-input,
-input#shipping-input {
+input#shipping-input,
+input#payment {
 	border-right: 0;
 	padding-left: 30px;
 }
@@ -251,7 +252,8 @@ input.payment-input:focus {
 
 .tax-type-dollar,
 .discount-type-dollar,
-.shipping-type-dollar {
+.shipping-type-dollar,
+.pay-type-dollar {
     position: absolute;
     left: 3px;
 	z-index: 9;
@@ -268,7 +270,7 @@ input.payment-input:focus {
 
 .tax .input-group-text,
 .discount .input-group-text,
-.shipping .input-group-text {
+.shipping .input-group-text{
 	background: transparent;
 	border-left: 0;
 	border-right: 0;
@@ -326,4 +328,14 @@ span#payment-input-text {
 
 input.payment-input {
     border-left-color: transparent;
+}
+
+
+/* ========================================== */
+.table td, .table th {
+	border: 0;
+}
+
+.input-group input {
+	border-right: 0px;
 }

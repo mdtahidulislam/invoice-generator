@@ -43,14 +43,14 @@ $(document).ready(function(){
             let taxTypePercent = document.querySelector('.tax-type-prcent');
             let taxTypeDollar = document.querySelector('.tax-type-dollar');
             if (selectedtype === 'Percent(%)') {
-                taxInput.setAttribute('placeholder', 0);
-                taxInput.setAttribute('dir', 'rtl');
+                //taxInput.setAttribute('placeholder', 0);
+                //taxInput.setAttribute('dir', 'rtl');
                 taxTypePercent.innerHTML = '%';
                 taxTypeDollar.classList.add('d-none');
             } else if(selectedtype === 'Flat($)') {
                 taxTypePercent.innerHTML = '';
-                taxInput.setAttribute('placeholder', '0');
-                taxInput.removeAttribute('dir');
+                //taxInput.setAttribute('placeholder', '0');
+                //taxInput.removeAttribute('dir');
                 taxTypeDollar.classList.remove('d-none');
             }
         });
@@ -103,14 +103,14 @@ $(document).ready(function(){
             let discountTypePercent = document.querySelector('.discount-type-prcent');
             let discountTypeDollar = document.querySelector('.discount-type-dollar');
             if (selectedtype === 'Percent(%)') {
-                discountInput.setAttribute('placeholder', 0);
-                discountInput.setAttribute('dir', 'rtl');
+                //discountInput.setAttribute('placeholder', 0);
+                //discountInput.setAttribute('dir', 'rtl');
                 discountTypePercent.innerHTML = '%';
                 discountTypeDollar.classList.add('d-none');
             } else if(selectedtype === 'Flat($)') {
                 discountTypePercent.innerHTML = '';
-                discountInput.setAttribute('placeholder', '0');
-                discountInput.removeAttribute('dir');
+                //discountInput.setAttribute('placeholder', '0');
+                //discountInput.removeAttribute('dir');
                 discountTypeDollar.classList.remove('d-none');
             }
         });
@@ -126,7 +126,6 @@ $(document).ready(function(){
     });
     // input place holder change wrt to dropdown for shipping 
     let shippingTypeDiv = document.getElementById('shipping-type-selector');
-    console.log(discountTypeDiv);
     let shippingType = shippingTypeDiv.querySelectorAll('.dropdown-item');
     shippingType.forEach(shippingTypeselector => {
         shippingTypeselector.addEventListener('click', function(){
@@ -135,14 +134,14 @@ $(document).ready(function(){
             let shippingTypePercent = document.querySelector('.shipping-type-prcent');
             let shippingTypeDollar = document.querySelector('.shipping-type-dollar');
             if (selectedtype === 'Percent(%)') {
-                shippingInput.setAttribute('placeholder', 0);
-                shippingInput.setAttribute('dir', 'rtl');
+                //shippingInput.setAttribute('placeholder', 0);
+                //shippingInput.setAttribute('dir', 'rtl');
                 shippingTypePercent.innerHTML = '%';
                 shippingTypeDollar.classList.add('d-none');
             } else if(selectedtype === 'Flat($)') {
                 shippingTypePercent.innerHTML = '';
-                shippingInput.setAttribute('placeholder', '0');
-                shippingInput.removeAttribute('dir');
+                //shippingInput.setAttribute('placeholder', '0');
+                //shippingInput.removeAttribute('dir');
                 shippingTypeDollar.classList.remove('d-none');
             }
         });
@@ -154,99 +153,96 @@ $(document).ready(function(){
                     calculation
 =========================================================== */
     
-$(document).ready(function(){
+// $(document).ready(function(){
     
-    $(".txtMult input").keyup(multInputs);
-    function multInputs() {
+//     $(".txtMult input").keyup(multInputs);
+//     function multInputs() {
         
-        var mult = 0;
-        var taxVal = 0;
-        // for each row:
-        $("tr.txtMult").each(function () {
-            // get the values from this row:
-            var $val1 = $('.val1', this).val();
-            var $val2 = $('.val2', this).val();
-            var $total = ($val1 * 1) * ($val2 * 1)
-            $('.multTotal',this).text($total);
-            mult += $total;
-        });
-        $(".subtotal").text(mult);
+//         var mult = 0;
+//         // for each row:
+//         $("tr.txtMult").each(function () {
+//             // get the values from this row:
+//             var $val1 = $('.val1', this).val();
+//             var $val2 = $('.val2', this).val();
+//             var $total = ($val1 * 1) * ($val2 * 1)
+//             $('.multTotal',this).text($total);
+//             mult += $total;
+//         });
+//         $(".subtotal").text(mult);
         
-        // tax calculation
-        $('.tax-input').keyup(()=>{
-            var taxVal = $('.tax-input').val();
-            var activeType = $('li.active');
-            activeType.each(function(){
-                var $activeText = $('ul#tax-type-selector li.active').text();
-                if ($activeText === 'Percent(%)') {
-                    $taxpercent = ( taxVal / 100) ;
-                    mult += $taxpercent;
-                    console.log(mult);
-                } else if ($activeText === 'Flat($)'){
-                    taxFlat  =  parseInt(taxVal);
-                } 
-            });
-        });
+//         // tax calculation
+//         $('.tax-input').keyup(()=>{
+//             window.taxVal = $('.tax-input').val();
+//             var activeType = $('li.active');
+//             activeType.each(function(){
+//                 var $activeText = $('ul#tax-type-selector li.active').text();
+//                 if ($activeText === 'Percent(%)') {
+//                     $taxpercent = ( taxVal / 100);
+//                     console.log(mult);
+//                 } else if ($activeText === 'Flat($)'){
+//                     taxFlat  =  parseInt(taxVal);
+//                 } 
+//             });
+//         });
         
-        // $('.tax-input').keyup(()=>{
-        //     var taxVal = $('.tax-input').val();
-        //     var activeType = $('li.active');
-        //     activeType.each(function(){
-        //         var $activeText = $('ul#tax-type-selector li.active').text();
-        //         if ($activeText === 'Percent(%)') {
-        //             $taxpercent = ( taxVal / 100) ;
-        //             mult += $taxpercent;
-        //             console.log(mult);
-        //         } else if ($activeText === 'Flat($)'){
-        //             taxFlat  =  parseInt(taxVal);
-        //         } 
-        //     });
-        // });
+//         $('.tax-input').keyup(()=>{
+//             window.taxVal = $('.tax-input').val();
+//             var activeType = $('li.active');
+//             activeType.each(function(){
+//                 var $activeText = $('ul#tax-type-selector li.active').text();
+//                 if ($activeText === 'Percent(%)') {
+//                     $taxpercent = ( taxVal / 100);
+//                     console.log(mult);
+//                 } else if ($activeText === 'Flat($)'){
+//                     taxFlat  =  parseInt(taxVal);
+//                 } 
+//             });
+//         });
         
-        // discount calculation
-        // $('.discount-input').keyup(()=>{
-        //     var disVal = $('.discount-input').val();
-        //     var activeType = $('li.active');
-        //     activeType.each(function(){
-        //         var $activeText = $('ul#discount-type-selector li.active').text();
-        //         if ($activeText === 'Percent(%)') {
-        //             dispercent = (disVal / 100);
-        //         } else if ($activeText === 'Flat($)'){
-        //             disFlat = parseInt(disVal);
-        //         } 
-        //     });
-        // });
-        // shipping calculation
-        // $('.shipping-input').keyup(()=>{
-        //     var shipVal = $('.shipping-input').val();
-        //     var activeType = $('li.active');
-        //     activeType.each(function(){
-        //         var $activeText = $('ul#shipping-type-selector li.active').text();
-        //         if ($activeText === 'Percent(%)') {
-        //             shippercent = (shipVal / 100);
-        //         } else if ($activeText === 'Flat($)'){
-        //             shipFlat = + parseInt(shipVal);
-        //         } 
-        //     });
-        // });
+//         discount calculation
+//         $('.discount-input').keyup(()=>{
+//             var disVal = $('.discount-input').val();
+//             var activeType = $('li.active');
+//             activeType.each(function(){
+//                 var $activeText = $('ul#discount-type-selector li.active').text();
+//                 if ($activeText === 'Percent(%)') {
+//                     dispercent = (disVal / 100);
+//                 } else if ($activeText === 'Flat($)'){
+//                     disFlat = parseInt(disVal);
+//                 } 
+//             });
+//         });
+//         shipping calculation
+//         $('.shipping-input').keyup(()=>{
+//             var shipVal = $('.shipping-input').val();
+//             var activeType = $('li.active');
+//             activeType.each(function(){
+//                 var $activeText = $('ul#shipping-type-selector li.active').text();
+//                 if ($activeText === 'Percent(%)') {
+//                     shippercent = (shipVal / 100);
+//                 } else if ($activeText === 'Flat($)'){
+//                     shipFlat = + parseInt(shipVal);
+//                 } 
+//             });
+//         });
 
         
             
-            //console.log(taxpercent);
+//             console.log(taxpercent);
         
         
-        // if (!$tax.val()) {
-        //     console.log('no value');
-        //     totalWithTax = mult;
-        //     $(".total").text(totalWithTax);
-        // } else if ($tax.val()) {
-        //     var $taxDiv = $('.tax');
-        //     console.log($taxDiv);
-        // }
-        //var totalWithTax = mult + tax;
-        //$(".total").text(totalWithTax);
-    }
-});
+//         if (!$tax.val()) {
+//             console.log('no value');
+//             totalWithTax = mult;
+//             $(".total").text(totalWithTax);
+//         } else if ($tax.val()) {
+//             var $taxDiv = $('.tax');
+//             console.log($taxDiv);
+//         }
+//         var totalWithTax = mult + tax;
+//         $(".total").text(totalWithTax);
+//     }
+// });
 
 
 
