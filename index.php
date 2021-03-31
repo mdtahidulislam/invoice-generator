@@ -13,10 +13,10 @@
                      <div class="col">
                         <div class="inv-info__contact">
                            <div class="inv-file-input form-group">
-                              <input type="file" name="logo" class="inv-file-input">
+                              <input type="file" id="fileinput" name="logo" class="inv-file-input">
                               <label class="inv-file-label" for="customFile">+ Add Your Logo</label>
                            </div>
-                           <div class="preview d-none">
+                           <div class="preview d-none" id="preview">
                               <img class="preview-img" src="">
                               <i class="fas fa-times close-img"></i>
                            </div>

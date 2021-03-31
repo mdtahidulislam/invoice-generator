@@ -1,22 +1,54 @@
+// appear image file after page refresh
+const fileinput = document.querySelector('#fileinput');
+fileinput.addEventListener('change', function () {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+        localStorage.setItem('getImg', reader.result);
+        const getImgUrl = localStorage.getItem('getImg');
+        if(getImgUrl){
+            document.querySelector('.preview-img').setAttribute('src', getImgUrl);
+        }
+    });
+    reader.readAsDataURL(this.files[0]);
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const getImgUrl = localStorage.getItem('getImg');
+    if(getImgUrl){
+        let invFileInput = document.querySelector('.inv-file-input')
+        let preview = document.querySelector('#preview');
+        let imgTag = document.querySelector('.preview-img')
+        let closeImg = document.querySelector('.close-img')
+        imgTag.setAttribute('src', getImgUrl);
+        if (imgTag.src !== '') {
+            invFileInput.classList.add('d-none');
+            preview.classList.remove('d-none');
+            closeImg.addEventListener('click', () => {
+                invFileInput.classList.remove('d-none');
+                preview.classList.add('d-none');
+            });
+        }
+    }
+});
 $(document).ready(function(){
     // file name show
     $('.inv-file-input').on('change',  function(e){
-        // show slected file name as label
+        //show slected file name as label
         //let fileName = $(this).val().split('\\').pop();
         //$(this).siblings('.inv-file-label').addClass('selected').html(fileName);
-        // show image preview
-        const imgFile = this.files[0];
-        if (imgFile) {
-            let reader = new FileReader();
-            reader.onload = (e)=>{
-                $('.preview-img').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(imgFile);
-        }
+        //show image preview
+        // const imgFile = this.files[0];
+        // if (imgFile) {
+        //     let reader = new FileReader();
+        //     reader.onload = (e)=>{
+        //         $('.preview-img').attr('src', e.target.result);
+        //     }
+        //     reader.readAsDataURL(imgFile);
+        // }
+
         $('.inv-file-input').addClass('d-none');
         $('.preview').removeClass('d-none');
 
-        // close image preview
+        // // close image preview
         $('.close-img').on('click', ()=>{
             $('.preview').addClass('d-none');
             $('.inv-file-input').removeClass('d-none');
