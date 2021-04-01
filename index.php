@@ -6,7 +6,7 @@
 	<!--========================== START  SECTION ==========================-->
 	<section class="pb-3">
 		<div class="container">
-			<form action="" class="invoice" enctype="multipart/formdata">
+			<form action="create.php" class="invoice" method="post" enctype="multipart/formdata">
             <div class="row">
                <div class="col-md-9 col-sm-12 inv-info">
                   <div class="row">
@@ -21,17 +21,17 @@
                               <i class="fas fa-times close-img"></i>
                            </div>
                            <div class="form-group">
-                              <textarea name="customer_msg" rows="2" class="form-control" placeholder="Who is this invoice from? (required)"></textarea>
+                              <textarea name="fromto" id="fromto" rows="2" class="form-control" placeholder="Who is this invoice from? (required)"></textarea>
                            </div>
                            <div class="form-group">
                               <div class="row">
                                  <div class="col-sm-6">
                                     <label> Bill To</label>
-                                    <textarea type="text" name="billto" class="form-control" placeholder="Who is this invoice to? (required)"></textarea>
+                                    <textarea type="text" name="billto" id="billto" class="form-control" placeholder="Who is this invoice to? (required)"></textarea>
                                  </div>
                                  <div class="col-sm-6">
                                     <label> Ship To</label>
-                                    <textarea type="text" name="shipto" class="form-control" placeholder="(Optional)"></textarea>
+                                    <textarea type="text" name="shipto" id="shipto" class="form-control" placeholder="(Optional)"></textarea>
                                  </div>
                               </div>
                            </div>
@@ -53,15 +53,15 @@
                            <table>
                               <tr>
                                  <td><label class="mr-4">Date</label></td>
-                                 <td><input type="text" name="date" id="date-datepicker" class="form-control mb-3" required></td>
+                                 <td><input type="text" name="date" id="date-datepicker" class="form-control mb-3" required autocomplete="off"></td>
                               </tr>
                               <tr>
                                  <td><label class="mr-4">Payment Terms</label></td>
-                                 <td><input type="text" name="date" class="form-control mb-3" required></td>
+                                 <td><input type="text" name="payterms" id="payterms" class="form-control mb-3" required></td>
                               </tr>
                               <tr>
                                  <td><label class="mr-4">Due Date</label></td>
-                                 <td><input type="text" name="date" id="due-datepicker" class="form-control mb-3" required></td>
+                                 <td><input type="text" name="duedate" id="due-datepicker" class="form-control mb-3" required autocomplete="off"></td>
                               </tr>
                            </table>
                         </div>
@@ -105,7 +105,7 @@
                                              <div class="notes-holder">
                                                 <div class="form-group mb-5">
                                                    <label>Notes</label>
-                                                   <textarea name="notes" id="" rows="2" class="form-control" placeholder="Notes - any relevant information not already covered"></textarea>
+                                                   <textarea name="notes" id="notes" rows="2" class="form-control" placeholder="Notes - any relevant information not already covered"></textarea>
                                                 </div>
                                              </div>
                                           </td>
@@ -114,8 +114,8 @@
                                           <td>
                                              <div class="terms-holder">
                                                 <div class="form-group">
-                                                   <label>Notes</label>
-                                                   <textarea name="notes" id="" rows="2" class="form-control" placeholder="Terms and conditions - late fees, payment methods, delivery schedule"></textarea>
+                                                   <label>Terms</label>
+                                                   <textarea name="terms" id="terms" rows="2" class="form-control" placeholder="Terms and conditions - late fees, payment methods, delivery schedule"></textarea>
                                                 </div>
                                              </div>
                                           </td>
@@ -234,7 +234,7 @@
                                                 <div class="input-group-prepend">
                                                    <span class="input-group-text" id="payment-input-text">$</span>
                                                 </div>
-                                                <input type="text" class="payment-input form-control" placeholder="0" >
+                                                <input type="text" name="paidamount" id="paidamount" class="payment-input form-control" placeholder="0" >
                                              </div>
                                           </td>
                                           <td></td>
@@ -432,7 +432,7 @@
                </div>
                <div class="col-md-3 col-sm-12">
                   <div class="sidebar">
-                     <button type="button" class="btn btn-primary btn-lg w-100 mb-4"> Send Invoice</button>
+                     <button type="submit" name="sendbtn" class="sendbtn btn btn-primary btn-lg w-100 mb-4"> Send Invoice</button>
                      <button type="button" class="btn btn-link btn-block btn-lg w-100 mb-4">Download Invoice</button>
                      <hr class="mb-4">
                      <div class="my-invoic-btn text-center">
