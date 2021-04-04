@@ -4,7 +4,18 @@
     // insert data
     if (isset($_POST['sendbtn'])) {
         // get all post varialbe values
-        $logo=$_POST['logo'];
+
+        // for img file
+        $perrmitted = array('jpg', 'jpeg', 'png', 'gif'); // permitted type
+        $img_name = $_FILES['logo']['name']; // img name
+        $img_size = $_FILES['logo']['size']; // img size
+        $img_temp = $_FILES['logo']['tmp_name']; // img temprary file
+        $img_seg = explode('.', $img_name); // img name segment
+        $img_ext = strtolower(end($img_seg)); // get img extension to lower case
+        $img_unique = substr(md5(time()), 0 , 10).'.'.$img_ext; // create unique name
+        $img_upload = 'assets/images/uploads/'.$img_unique; // img uploaded folder
+        move_uploaded_file($img_temp, $img_upload);
+
         $fromto=$_POST['fromto'];
         $billto=$_POST['billto'];
         $shipto=$_POST['shipto'];
@@ -19,7 +30,7 @@
         $paidamount=$_POST['paidamount'];
 
         // insert data into table
-        $query = "INSERT INTO tbl_info(logo, fromto, billto, shipto, invdate, payterms, duedate, notes, terms, tax, discount, shipping, paidamount) VALUES('$logo','$fromto','$billto','$shipto','$date','$payterms','$duedate','$notes','$terms', '$tax', '$discount', '$shipping', '$paidamount')";
+        $query = "INSERT INTO tbl_info(logo, fromto, billto, shipto, invdate, payterms, duedate, notes, terms, tax, discount, shipping, paidamount) VALUES('$img_upload','$fromto','$billto','$shipto','$date','$payterms','$duedate','$notes','$terms', '$tax', '$discount', '$shipping', '$paidamount')";
         $query_run = mysqli_query($conn, $query);
         header('Location: index.php');
     }

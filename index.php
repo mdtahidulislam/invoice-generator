@@ -6,7 +6,7 @@
 	<!--========================== START  SECTION ==========================-->
 	<section class="pb-3">
 		<div class="container">
-			<form action="create.php" class="invoice" method="post" enctype="multipart/formdata">
+			<form action="create.php" class="invoice" method="post" enctype="multipart/form-data">
             <div class="row">
                <div class="col-md-9 col-sm-12 inv-info">
                   <div class="row">
