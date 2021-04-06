@@ -339,3 +339,7 @@ input.payment-input {
 .input-group input {
 	border-right: 0px;
 }
+.btn[disabled="disabled"]{
+	cursor: not-allowed;
+	pointer-events: auto;
+}

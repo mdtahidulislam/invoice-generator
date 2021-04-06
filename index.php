@@ -1,4 +1,20 @@
 <?php include('header.php'); ?>
+<?php include('config.php'); ?>
+<?php
+   // invoice number generate
+   $sql = "SELECT iid FROM tbl_info ORDER BY iid DESC LIMIT 1";
+   $result = mysqli_query($conn, $sql);
+   $row = mysqli_fetch_assoc($result);
+   $lastid = $row['iid'];
+   date_default_timezone_set('Asia/Dhaka');
+   $date = date('dmy');
+   if (empty($lastid)) {
+       $invnum = $date.'1';
+   } else {
+       $lastid++;
+       $invnum = $date.$lastid;
+   }
+?>
 
 
 <!---- START MAIN AREA ---->
@@ -45,7 +61,7 @@
                                  <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">#</span>
                                  </div>
-                                 <input type="text" dir="rtl" name="inv_num" class="form-control inv-num-input" placeholder="1">
+                                 <input type="text" dir="rtl" name="inv_num" class="form-control inv-num-input" value="<?php echo $invnum; ?>" readonly>
                               </div>
                            </div>
                         </div>
@@ -83,9 +99,9 @@
                               </thead>
                               <tbody>
                                  <tr class="item-row" id="row">
-                                    <td width="350"><input class="form-control item" placeholder="Item" type="text"></td>
-                                    <td><input class="form-control qty" placeholder="Quantity" type="text"></td>
-                                    <td><input class="form-control price" placeholder="Rate" type="text"></td>
+                                    <td width="350"><input class="form-control item" name="item[]" placeholder="Item" type="text"></td>
+                                    <td><input class="form-control qty" name="qty[]" placeholder="Quantity" type="text"></td>
+                                    <td><input class="form-control price" name="rate[]" placeholder="Rate" type="text"></td>
                                     <td class="text-right">$<span class="total">0.00</span></td>
                                     <td></td>
                                  </tr>
@@ -433,7 +449,7 @@
                <div class="col-md-3 col-sm-12">
                   <div class="sidebar">
                      <button type="submit" name="sendbtn" class="sendbtn btn btn-primary btn-lg w-100 mb-4"> Send Invoice</button>
-                     <button type="button" class="btn btn-link btn-block btn-lg w-100 mb-4">Download Invoice</button>
+                     <button type="button" class="btn btn-link btn-block btn-lg w-100 mb-4 inv-down" disabled="disabled">Download Invoice</button>
                      <hr class="mb-4">
                      <div class="my-invoic-btn text-center">
                         <a href="#">My Invoices <span class="my-inv-num">0</span></a>
@@ -442,6 +458,11 @@
                </div>
             </div>
          </form>
+         
+         <form action="" method="post" enctype="multipasrt/form-data" id="form">
+                <input type="text" name="name" class="name" placeholder="name...">
+                <input type="submit" value="submit" class="btn submit">
+</form>
 		</div>
 	</section>
 	<!--========================== END  SECTION ============================-->

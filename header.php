@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="assets/css/default.css" />
 	<link rel="stylesheet" href="assets/css/style.css" />
 	<link rel="stylesheet" href="assets/css/responsive.css" />
+	<link rel="stylesheet" href="assets/css/print.css" media="print"/>
 </head>
 
 <body>

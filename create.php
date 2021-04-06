@@ -29,9 +29,24 @@
         $shipping=$_POST['shipping'];
         $paidamount=$_POST['paidamount'];
 
-        // insert data into table
+        // insert data into tbl_info
         $query = "INSERT INTO tbl_info(logo, fromto, billto, shipto, invdate, payterms, duedate, notes, terms, tax, discount, shipping, paidamount) VALUES('$img_upload','$fromto','$billto','$shipto','$date','$payterms','$duedate','$notes','$terms', '$tax', '$discount', '$shipping', '$paidamount')";
         $query_run = mysqli_query($conn, $query);
+
+        // insert data into tbl_item
+        $items = count($_POST['item']);
+        if ($items > 0) {
+            for ($i=0; $i < $items; $i++) { 
+                $item = $_POST['item'][$i];
+                $qty = $_POST['qty'][$i];
+                $rate = $_POST['rate'][$i];
+                $iquery = "INSERT INTO tbl_item(item, quantity, rate) VALUES('$item', '$qty', '$rate')";
+                $iquery_run = mysqli_query($conn, $iquery);
+            }
+        }
+        
+        
+
         header('Location: index.php');
     }
 ?>

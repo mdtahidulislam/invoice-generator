@@ -178,6 +178,24 @@ $(document).ready(function(){
             }
         });
     });
+
+    $('.submit').click(function(e){
+        e.preventDefault();
+        let name = $('.name').val();
+        alert(name);
+        $.ajax({
+            type: 'post',
+            url: './ajaxdata.php',
+            data: {name:name},
+            success: function(data){
+                if(data){
+                    alert('inserted');
+                } else {
+                    alert('not inserted');
+                }
+            }
+        });
+    });
 });
 
     
