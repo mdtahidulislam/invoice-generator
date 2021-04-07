@@ -16,6 +16,20 @@
         $img_upload = 'assets/images/uploads/'.$img_unique; // img uploaded folder
         move_uploaded_file($img_temp, $img_upload);
 
+        // get invoice number
+        $sql = "SELECT iid FROM tbl_info ORDER BY iid DESC LIMIT 1";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        $lastid = $row['iid'];
+        date_default_timezone_set('Asia/Dhaka');
+        $date = date('dmy');
+        if (empty($lastid)) {
+            $invnum = $date.'1';
+        } else {
+            ++$lastid;
+            $invnum = $date.$lastid;
+        }
+
         $fromto=$_POST['fromto'];
         $billto=$_POST['billto'];
         $shipto=$_POST['shipto'];
@@ -30,7 +44,7 @@
         $paidamount=$_POST['paidamount'];
 
         // insert data into tbl_info
-        $query = "INSERT INTO tbl_info(logo, fromto, billto, shipto, invdate, payterms, duedate, notes, terms, tax, discount, shipping, paidamount) VALUES('$img_upload','$fromto','$billto','$shipto','$date','$payterms','$duedate','$notes','$terms', '$tax', '$discount', '$shipping', '$paidamount')";
+        $query = "INSERT INTO tbl_info(logo, invnumber, fromto, billto, shipto, invdate, payterms, duedate, notes, terms, tax, discount, shipping, paidamount) VALUES('$img_upload','$invnum','$fromto','$billto','$shipto','$date','$payterms','$duedate','$notes','$terms', '$tax', '$discount', '$shipping', '$paidamount')";
         $query_run = mysqli_query($conn, $query);
 
         // insert data into tbl_item
@@ -40,13 +54,11 @@
                 $item = $_POST['item'][$i];
                 $qty = $_POST['qty'][$i];
                 $rate = $_POST['rate'][$i];
-                $iquery = "INSERT INTO tbl_item(item, quantity, rate) VALUES('$item', '$qty', '$rate')";
+                $iquery = "INSERT INTO tbl_item(item, invnumber, quantity, rate) VALUES('$item', '$invnum', '$qty', '$rate')";
                 $iquery_run = mysqli_query($conn, $iquery);
             }
         }
         
-        
-
         header('Location: index.php');
     }
 ?>

@@ -22,7 +22,7 @@
 	<!--========================== START  SECTION ==========================-->
 	<section class="pb-3">
 		<div class="container">
-			<form action="create.php" class="invoice" method="post" enctype="multipart/form-data">
+			<form action="create.php" class="invoice" method="POST" enctype="multipart/form-data">
             <div class="row">
                <div class="col-md-9 col-sm-12 inv-info">
                   <div class="row">
@@ -448,7 +448,7 @@
                </div>
                <div class="col-md-3 col-sm-12">
                   <div class="sidebar">
-                     <button type="submit" name="sendbtn" class="sendbtn btn btn-primary btn-lg w-100 mb-4"> Send Invoice</button>
+                     <button type="submit" name="sendbtn" class="sendbtn btn btn-primary btn-lg w-100 mb-4" onclick="print()"> Send Invoice</button>
                      <button type="button" class="btn btn-link btn-block btn-lg w-100 mb-4 inv-down" disabled="disabled">Download Invoice</button>
                      <hr class="mb-4">
                      <div class="my-invoic-btn text-center">
@@ -458,11 +458,6 @@
                </div>
             </div>
          </form>
-         
-         <form action="" method="post" enctype="multipasrt/form-data" id="form">
-                <input type="text" name="name" class="name" placeholder="name...">
-                <input type="submit" value="submit" class="btn submit">
-</form>
 		</div>
 	</section>
 	<!--========================== END  SECTION ============================-->

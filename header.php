@@ -27,7 +27,7 @@
 		<div class="container">
          <div class="row">
             <div class="col-md-12 d-flex justify-content-center">
-               <img src="assets/images/zpc-logo.png" alt="Logo" class="img-fluid">
+               <img src="assets/images/zpc-logo.png" alt="Logo" class="img-fluid top-logo">
             </div>
          </div>
       </div>

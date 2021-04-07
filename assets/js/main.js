@@ -179,23 +179,57 @@ $(document).ready(function(){
         });
     });
 
-    $('.submit').click(function(e){
-        e.preventDefault();
-        let name = $('.name').val();
-        alert(name);
-        $.ajax({
-            type: 'post',
-            url: './ajaxdata.php',
-            data: {name:name},
-            success: function(data){
-                if(data){
-                    alert('inserted');
-                } else {
-                    alert('not inserted');
-                }
-            }
-        });
-    });
+    // $('.sendbtn').click(function(e){
+    //     e.preventDefault();
+    //     let fromto = $('#fromto').val();
+    //     let billto = $('#billto').val();
+    //     let shipto = $('#shipto').val();
+    //     let date = $('#date-datepicker').val();
+    //     let payterms = $('#payterms').val();
+    //     let duedate = $('#due-datepicker').val();
+    //     let item = [];
+    //     let qty = [];
+    //     let rate = [];
+    //     $('.item').each(function(){
+    //         item.push($(this).val());
+    //     });
+    //     $('.qty').each(function(){
+    //         qty.push($(this).val());
+    //     });
+    //     $('.rate').each(function(){
+    //         rate.push($(this).val());
+    //     });
+    //     let notes = $('#notes').val();
+    //     let terms = $('#terms').val();
+    //     let tax = $('#tax').val();
+    //     let discount = $('#discount').val();
+    //     let shipping = $('#shipping').val();
+    //     let paidamount = $('#paidamount').val();
+    //     $.ajax({
+    //         url: 'ajaxdata.php',
+    //         method: 'POST',
+    //         data: {
+    //             fromto:fromto, 
+    //             billto:billto, 
+    //             shipto:shipto, 
+    //             date:date, 
+    //             payterms:payterms, 
+    //             duedate:duedate, 
+    //             item:item, 
+    //             qty:qty, 
+    //             rate:rate, 
+    //             notes:notes,
+    //             terms:terms,
+    //             tax:tax,
+    //             discount:discount,
+    //             shipping:shipping,
+    //             paidamount:paidamount
+    //         },
+    //         success: function(data){
+    //             alert(data);
+    //         }
+    //     });
+    // });
 });
 
     
