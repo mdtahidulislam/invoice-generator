@@ -164,7 +164,7 @@
                                                    </button>
                                                    <ul class="dropdown-menu dropdown-menu-right" id="tax-type-selector" aria-labelledby="dropdownMenuButton">
                                                       <li class="dropdown-item">Flat($)</li>
-                                                      <li class="dropdown-item active">Percent(%)</li>
+                                                      <li class="dropdown-item active" name="percent">Percent(%)</li>
                                                    </ul>
                                                 </div>
                                              </div>
@@ -449,7 +449,7 @@
                <div class="col-md-3 col-sm-12">
                   <div class="sidebar">
                      <button type="submit" name="sendbtn" class="sendbtn btn btn-primary btn-lg w-100 mb-4" onclick="print()"> Send Invoice</button>
-                     <button type="button" class="btn btn-link btn-block btn-lg w-100 mb-4 inv-down" disabled="disabled">Download Invoice</button>
+                     <a href="send.php" class="btn btn-link btn-block btn-lg w-100 mb-4 inv-down">Download Invoice</a>
                      <hr class="mb-4">
                      <div class="my-invoic-btn text-center">
                         <a href="#">My Invoices <span class="my-inv-num">0</span></a>

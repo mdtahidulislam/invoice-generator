@@ -42,7 +42,6 @@
         $discount=$_POST['discount'];
         $shipping=$_POST['shipping'];
         $paidamount=$_POST['paidamount'];
-
         // insert data into tbl_info
         $query = "INSERT INTO tbl_info(logo, invnumber, fromto, billto, shipto, invdate, payterms, duedate, notes, terms, tax, discount, shipping, paidamount) VALUES('$img_upload','$invnum','$fromto','$billto','$shipto','$date','$payterms','$duedate','$notes','$terms', '$tax', '$discount', '$shipping', '$paidamount')";
         $query_run = mysqli_query($conn, $query);
@@ -59,6 +58,6 @@
             }
         }
         
-        header('Location: index.php');
+        header('Location: send.php');
     }
 ?>
