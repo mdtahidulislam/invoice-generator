@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2021 at 02:06 PM
+-- Generation Time: Apr 10, 2021 at 01:56 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -112,7 +112,11 @@ INSERT INTO `tbl_info` (`iid`, `logo`, `invnumber`, `fromto`, `billto`, `shipto`
 (60, 'assets/images/uploads/67c5ac1ad0.', '07042160', '60 num', '', '', '2021-04-07', 'adasd', '2021-04-08', '', '', '3.00', '0.00', '0.00', '22.00'),
 (61, 'assets/images/uploads/71366721a3.', '07042161', 'loclstorage', '', '', '2021-04-07', 'adasd', '2021-04-08', '', '', '0.00', '0.00', '0.00', '0.00'),
 (62, 'assets/images/uploads/29fd9cc41b.', '07042162', 'yyyyyyyyyyy', '', '', '2021-04-07', 'adasd', '2021-04-08', '', '', '0.00', '0.00', '0.00', '0.00'),
-(63, 'assets/images/uploads/24450e4520.', '07042163', 'asdadsad', '', '', '2021-04-07', 'adasd', '2021-04-08', '', '', '0.00', '0.00', '0.00', '0.00');
+(63, 'assets/images/uploads/24450e4520.', '07042163', 'asdadsad', '', '', '2021-04-07', 'adasd', '2021-04-08', '', '', '0.00', '0.00', '0.00', '0.00'),
+(64, 'assets/images/uploads/9b683e923b.', '08042164', '', '', '', '2021-04-08', 'adasd', '2021-04-09', '', '', '0.00', '0.00', '0.00', '0.00'),
+(65, 'assets/images/uploads/79544f3b3e.', '08042165', 'per', '', '', '2021-04-08', 'adasd', '2021-04-09', '', '', '1.00', '0.00', '0.00', '0.00'),
+(66, 'assets/images/uploads/39dc07e218.', '08042166', 'erwr', '', '', '2021-04-08', 'adasd', '2021-04-09', '', '', '0.00', '0.00', '0.00', '0.00'),
+(67, 'assets/images/uploads/e5f25dfdc0.', '08042167', 'erwr', '', '', '2021-04-08', 'adasd', '2021-04-09', '', '', '0.00', '0.00', '0.00', '0.00');
 
 -- --------------------------------------------------------
 
@@ -147,7 +151,11 @@ INSERT INTO `tbl_item` (`id`, `invnumber`, `item`, `quantity`, `rate`) VALUES
 (12, '07042160', 'ttyt', 2, '2.00'),
 (13, '07042161', '', 0, '0.00'),
 (14, '07042162', '', 0, '0.00'),
-(15, '07042163', '', 0, '0.00');
+(15, '07042163', '', 0, '0.00'),
+(16, '08042164', '', 0, '0.00'),
+(17, '08042165', '', 0, '0.00'),
+(18, '08042166', '', 0, '0.00'),
+(19, '08042167', '', 0, '0.00');
 
 --
 -- Indexes for dumped tables
@@ -173,13 +181,13 @@ ALTER TABLE `tbl_item`
 -- AUTO_INCREMENT for table `tbl_info`
 --
 ALTER TABLE `tbl_info`
-  MODIFY `iid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `iid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `tbl_item`
 --
 ALTER TABLE `tbl_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
