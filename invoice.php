@@ -1,5 +1,6 @@
 <?php include('header.php'); ?>
 <?php include('config.php'); ?>
+<?php include('auth.php'); ?>
 <?php
    // invoice number generate
    $sql = "SELECT iid FROM tbl_info ORDER BY iid DESC LIMIT 1";
@@ -20,6 +21,7 @@
 <!---- START MAIN AREA ---->
 <main>
 	<!--========================== START  SECTION ==========================-->
+   <?php include('user-logout.php'); ?>
 	<section class="pb-3">
 		<div class="container">
 			<form action="create.php" class="invoice" method="POST" enctype="multipart/form-data">
@@ -449,10 +451,19 @@
                <div class="col-md-3 col-sm-12">
                   <div class="sidebar">
                      <button type="submit" name="sendbtn" class="sendbtn btn btn-primary btn-lg w-100 mb-4" onclick="print()"> Send Invoice</button>
-                     <a href="send.php" class="btn btn-link btn-block btn-lg w-100 mb-4 inv-down">Download Invoice</a>
+                     <a href="download.php" class="btn btn-link btn-block btn-lg w-100 mb-4 inv-down">Download Invoice</a>
                      <hr class="mb-4">
                      <div class="my-invoic-btn text-center">
-                        <a href="#">My Invoices <span class="my-inv-num">0</span></a>
+                        <a href="#">My Invoices 
+                        <span class="my-inv-num">
+                           <?php
+                              $username = $_SESSION['username'];
+                              $inquery = "SELECT * FROM tbl_info WHERE username = '$username'";
+                              $inquery_run = mysqli_query($conn, $inquery);
+                              $inrow = mysqli_num_rows($inquery_run);
+                              echo $inrow;
+                           ?>
+                        </span></a>
                      </div>
                   </div>
                </div>

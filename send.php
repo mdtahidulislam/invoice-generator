@@ -1,4 +1,5 @@
 <?php include('header.php'); ?>
+<?php include('config.php'); ?>
 <?php
 if (isset($_POST['submit'])) {
     require 'phpmailer/PHPMailerAutoload.php';
@@ -57,6 +58,7 @@ if(!$mail->send()) {
 <!---- START MAIN AREA ---->
 <main>
 	<!--========================== START  SECTION ==========================-->
+  <?php include('user-logout.php'); ?>
 	<section class="pb-3">
 		<div class="container">
             <div class="row">
@@ -64,14 +66,22 @@ if(!$mail->send()) {
                     <button type="button" data-toggle="modal" data-target="#sendmail" name="sendmail" class="btn btn-primary btn-lg w-100 mb-4">Send Invoice on Mail</button>
                     <a href="https://www.messenger.com/" name="sendmassenger" class="btn btn-primary btn-lg w-100 mb-4">Send Invoice on Messenger</a>
                     <a href="https://www.whatsapp.com/" name="sendwhatsapp" class="btn btn-primary btn-lg w-100 mb-4">Send Invoice on Whatsapp</a>
-                    <button type="button" class="btn btn-link btn-block btn-lg w-100 mb-4 inv-down" disabled="disabled">Download Invoice</button>
+                    <a href="download.php" class="btn btn-link btn-block btn-lg w-100 mb-4 inv-down">Download Invoice</a>
                     <hr class="mb-4">
                     <div class="my-invoic-btn text-center">
-                        <a href="#">My Invoices <span class="my-inv-num">0</span></a>
+                        <a href="#">My Invoices <span class="my-inv-num">
+                          <?php
+                              $username = $_SESSION['username'];
+                              $inquery = "SELECT * FROM tbl_info WHERE username = '$username'";
+                              $inquery_run = mysqli_query($conn, $inquery);
+                              $inrow = mysqli_num_rows($inquery_run);
+                              echo $inrow;
+                           ?>
+                        </span></a>
                     </div>
                     <hr class="mb-4">
                     <div class="my-invoic-btn text-center">
-                        <a href="index.php">Create New Invoice</a>
+                        <a href="invoice.php">Create New Invoice</a>
                     </div>
                 </div>
             </div>

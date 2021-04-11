@@ -1,3 +1,6 @@
+<!-- start session -->
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +17,7 @@
 	<!----- CSS HERE ----->
 	<link rel="stylesheet" href="assets/css/jquery-ui-1.12.1.css">
    	<link rel="stylesheet" href="assets/css/bootstrap.css">
+   	<link rel="stylesheet" href="assets/css/datatable.css">
 	<link rel="stylesheet" href="assets/css/default.css" />
 	<link rel="stylesheet" href="assets/css/style.css" />
 	<link rel="stylesheet" href="assets/css/responsive.css" />

@@ -1,7 +1,7 @@
 <?php include('header.php'); ?>
 <?php 
     include('config.php'); 
-    session_start();
+    //session_start();
     if (isset($_POST['username'])) {
         // username
         $username = stripslashes($_POST['username']);

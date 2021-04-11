@@ -1,4 +1,5 @@
 <?php include('config.php'); ?>
+<?php session_start(); ?>
 
 <?php
     // insert data
@@ -30,6 +31,9 @@
             $invnum = $date.$lastid;
         }
 
+        if (isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];
+        }
         $fromto=$_POST['fromto'];
         $billto=$_POST['billto'];
         $shipto=$_POST['shipto'];
@@ -43,7 +47,7 @@
         $shipping=$_POST['shipping'];
         $paidamount=$_POST['paidamount'];
         // insert data into tbl_info
-        $query = "INSERT INTO tbl_info(logo, invnumber, fromto, billto, shipto, invdate, payterms, duedate, notes, terms, tax, discount, shipping, paidamount) VALUES('$img_upload','$invnum','$fromto','$billto','$shipto','$date','$payterms','$duedate','$notes','$terms', '$tax', '$discount', '$shipping', '$paidamount')";
+        $query = "INSERT INTO tbl_info(logo, invnumber, username, fromto, billto, shipto, invdate, payterms, duedate, notes, terms, tax, discount, shipping, paidamount) VALUES('$img_upload','$invnum','$username','$fromto','$billto','$shipto','$date','$payterms','$duedate','$notes','$terms', '$tax', '$discount', '$shipping', '$paidamount')";
         $query_run = mysqli_query($conn, $query);
 
         // insert data into tbl_item
