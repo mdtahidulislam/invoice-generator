@@ -33,12 +33,11 @@
                                 <td><?php echo $row['billto']; ?></td>
                                 <td><?php echo $row['shipto']; ?></td>
                                 <td>
-                                    <a href="#print<?php echo urldecode($row['iid']); ?>" title="print" data-toggle="modal"><i class="fas fa-print"></i></a>
+                                    <a href="#print<?php echo urldecode($row['invnumber']); ?>" title="print" data-toggle="modal"><i class="fas fa-print"></i></a>
                                     <?php include('print_modal.php'); ?>
                                 </td>
                             </tr>
-                            <?php 
-                                break;           
+                            <?php            
                                     }
                                 }
                             ?>

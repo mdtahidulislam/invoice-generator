@@ -84,6 +84,11 @@ $(document).ready(function(){
                 //taxInput.setAttribute('placeholder', '0');
                 //taxInput.removeAttribute('dir');
                 taxTypeDollar.classList.remove('d-none');
+                let taxpercent = document.querySelector('#tax');
+                taxpercent.parentElement.removeChild(taxpercent);
+                $('.tax').prepend(`
+                <input type="number" name="taxflat" id="tax" dir="rtl" placeholder="0" autocomplete="off" class="tax-input form-control">
+                `);
             }
         });
     });
@@ -144,6 +149,11 @@ $(document).ready(function(){
                 //discountInput.setAttribute('placeholder', '0');
                 //discountInput.removeAttribute('dir');
                 discountTypeDollar.classList.remove('d-none');
+                let discountpercent = document.querySelector('#discount');
+                discountpercent.parentElement.removeChild(discountpercent);
+                $('.discount').prepend(`
+                <input type="number" name="discountflat" id="discount" dir="rtl" placeholder="0" autocomplete="off" class="discount-input form-control">
+                `);
             }
         });
     });
@@ -175,6 +185,11 @@ $(document).ready(function(){
                 //shippingInput.setAttribute('placeholder', '0');
                 //shippingInput.removeAttribute('dir');
                 shippingTypeDollar.classList.remove('d-none');
+                let shippingpercent = document.querySelector('#shipping');
+                shippingpercent.parentElement.removeChild(shippingpercent);
+                $('.shipping').prepend(`
+                <input type="number" name="shippingflat" id="shipping" dir="rtl" placeholder="0" autocomplete="off" class="shipping-input form-control">
+                `);
             }
         });
     });

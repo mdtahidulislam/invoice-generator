@@ -42,12 +42,15 @@
         $duedate= date('Y-m-d', strtotime($_POST['duedate']));
         $notes=$_POST['notes'];
         $terms=$_POST['terms'];
-        $tax=$_POST['tax'];
-        $discount=$_POST['discount'];
-        $shipping=$_POST['shipping'];
+        $taxpercent=$_POST['taxpercent'];
+        $taxflat=$_POST['taxflat'];
+        $discountpercent=$_POST['discountpercent'];
+        $discountflat=$_POST['discountflat'];
+        $shippingpercent=$_POST['shippingpercent'];
+        $shippingflat=$_POST['shippingflat'];
         $paidamount=$_POST['paidamount'];
         // insert data into tbl_info
-        $query = "INSERT INTO tbl_info(logo, invnumber, username, fromto, billto, shipto, invdate, payterms, duedate, notes, terms, tax, discount, shipping, paidamount) VALUES('$img_upload','$invnum','$username','$fromto','$billto','$shipto','$date','$payterms','$duedate','$notes','$terms', '$tax', '$discount', '$shipping', '$paidamount')";
+        $query = "INSERT INTO tbl_info(logo, invnumber, username, fromto, billto, shipto, invdate, payterms, duedate, notes, terms, taxpercent, taxflat, discountpercent, discountflat, shippingpercent,shippingflat, paidamount) VALUES('$img_upload','$invnum','$username','$fromto','$billto','$shipto','$date','$payterms','$duedate','$notes','$terms', '$taxpercent', '$taxflat', '$discountpercent', '$discountflat', '$shippingpercent','$shippingflat', '$paidamount')";
         $query_run = mysqli_query($conn, $query);
 
         // insert data into tbl_item
@@ -57,7 +60,8 @@
                 $item = $_POST['item'][$i];
                 $qty = $_POST['qty'][$i];
                 $rate = $_POST['rate'][$i];
-                $iquery = "INSERT INTO tbl_item(item, invnumber, quantity, rate) VALUES('$item', '$invnum', '$qty', '$rate')";
+                $total = $qty * $rate;
+                $iquery = "INSERT INTO tbl_item(item, invnumber, username, quantity, rate, total) VALUES('$item', '$invnum', '$username', '$qty', '$rate', '$total')";
                 $iquery_run = mysqli_query($conn, $iquery);
             }
         }

@@ -154,7 +154,7 @@
                                           <td class="text-right">Tax</td>
                                           <td>
                                              <div class="input-group tax mb-3">
-                                                <input type="number" name="tax" id="tax" dir="rtl" placeholder="0" autocomplete="off" class="tax-input form-control">
+                                                <input type="number" name="taxpercent" id="tax" dir="rtl" placeholder="0" autocomplete="off" class="tax-input form-control">
                                                 <div class="input-group-prepend ">
                                                    <span class="input-group-text tax-type-dollar d-none">$</span>
                                                 </div>
@@ -166,7 +166,7 @@
                                                    </button>
                                                    <ul class="dropdown-menu dropdown-menu-right" id="tax-type-selector" aria-labelledby="dropdownMenuButton">
                                                       <li class="dropdown-item">Flat($)</li>
-                                                      <li class="dropdown-item active" name="percent">Percent(%)</li>
+                                                      <li class="dropdown-item active">Percent(%)</li>
                                                    </ul>
                                                 </div>
                                              </div>
@@ -179,7 +179,7 @@
                                           <td>
                                              <!-- <input class="form-control" id="discount" value="0" type="text"> -->
                                              <div class="input-group discount mb-3">
-                                                <input type="number" name="discount" id="discount" dir="rtl" placeholder="0" autocomplete="off" class="discount-input form-control">
+                                                <input type="number" name="discountpercent" id="discount" dir="rtl" placeholder="0" autocomplete="off" class="discount-input form-control">
                                                 <div class="input-group-prepend ">
                                                    <span class="input-group-text discount-type-dollar d-none">$</span>
                                                 </div>
@@ -206,7 +206,7 @@
                                           <td class="text-right">Shipping</td>
                                           <td>
                                              <div class="input-group shipping mb-3">
-                                                <input type="number" name="shipping" id="shipping" dir="rtl" placeholder="0" autocomplete="off" class="shipping-input form-control">
+                                                <input type="number" name="shippingpercent" id="shipping" dir="rtl" placeholder="0" autocomplete="off" class="shipping-input form-control">
                                                 <div class="input-group-prepend ">
                                                    <span class="input-group-text shipping-type-dollar d-none">$</span>
                                                 </div>
@@ -269,184 +269,8 @@
                               </tr>
                            </table>
                         </div>
-                        <!-- <div class="table-responsive-sm">
-                           <table class="table" id="dynamic_field">
-                              <thead class="thead-dark">
-                                 <tr class="item-row">
-                                    <th scope="col">Item</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Rate</th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col"></th>
-                                 </tr>
-                              </thead>
-                              <tbody>
-                                 <tr id="row0" class="item-row single-ro txtMult">
-                                    <td width="500">
-                                       <input type="text" name="item_name[]" id="item-name" placeholder="Description of service or product..." class="item-name form-control" required>
-                                    </td>
-                                    <td width="150">
-                                       <input type="number" name="item_qty[]" id="item-qty" class="qty item-qty form-control" required autocomplete="off" placeholder="Quantity">
-                                    </td>
-                                    <td width="200">
-                                       <input type="number" name="item_rate[]" id="item-rate" class="price item-rate form-control" placeholder="Rate" required>
-                                    </td>
-                                    <td width="150" align="right">
-                                       <span class="total amount multTotal">$0.00</span>
-                                    </td>
-                                    <td></td>
-                                 </tr>
-                                 <tr id="row0" class="single-ro txtMult">
-                                    <td width="500">
-                                       <input type="text" name="item_name[]" id="item-name" placeholder="Description of service or product..." class="item-name form-control" required>
-                                    </td>
-                                    <td width="150">
-                                       <input type="number" name="item_qty[]" id="item-qty" class="val1 item-qty form-control" required autocomplete="off" placeholder="Quantity">
-                                    </td>
-                                    <td width="200">
-                                       <input type="number" name="item_rate[]" id="item-rate" class="val2 item-rate form-control" placeholder="Rate" required>
-                                    </td>
-                                    <td width="150" align="right">
-                                       <span class="amount multTotal">$0.00</span>
-                                    </td>
-                                    <td></td>
-                                 </tr>
-                              </tbody>
-                           </table>
-                           <button type="button" name="add" id="add" class="btn btn-primary mb-4">+ Line Item</button>
-                        </div> -->
                      </div>
                   </div>
-                  <!-- <div class="row">
-                     <div class="col-md-6 col-sm-12">
-                        <div class="notes-holder">
-                           <div class="form-group mb-5">
-                              <label>Notes</label>
-                              <textarea name="notes" id="" rows="2" class="form-control" placeholder="Notes - any relevant information not already covered"></textarea>
-                           </div>
-                        </div>
-                        <div class="terms-holder">
-                           <div class="form-group">
-                              <label>Notes</label>
-                              <textarea name="notes" id="" rows="2" class="form-control" placeholder="Terms and conditions - late fees, payment methods, delivery schedule"></textarea>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-6 col-sm-12">
-                        <div class="rates-cal d-flex justify-content-end">
-                           <table id="rates_field">
-                              <tr>
-                                 <td width="195" align="right"><label class="mr-4">Subtotal</label></td>
-                                 <td width="195" align="right"><span class="mb-3 subtotal" id="subtotal">$0.00</span></td>
-                                 <td width="20"></td>
-                              </tr>
-                              <tr>
-                                 <td width="195" align="right"><label class="mr-4">Tax</label></td>
-                                 <td width="195" align="right">
-                                    <div class="input-group tax mb-3">
-                                       <input type="number" name="tax" id="tax-input" dir="rtl" placeholder="0" autocomplete="off" class="tax-input form-control">
-                                       <div class="input-group-prepend ">
-                                          <span class="input-group-text tax-type-dollar d-none">$</span>
-                                       </div>
-                                       <div class="input-group-append">
-                                          <span class="input-group-text tax-type-prcent">%</span>
-                                       </div>
-                                       <div id="tax-type" class="input-group-append">
-                                          <button class="btn dropdown-toggle tax-type-btn" type="button" id="tax-type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          </button>
-                                          <ul class="dropdown-menu dropdown-menu-right" id="tax-type-selector" aria-labelledby="dropdownMenuButton">
-                                             <li class="dropdown-item">Flat($)</li>
-                                             <li class="dropdown-item active">Percent(%)</li>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </td>
-                                 <td width="20"></td>
-                              </tr>
-                              <tr id="" class="input-type-row d-none">
-                                 <td width="195" align="right"><label class="m-0 mr-4">Discount</label></td>
-                                 <td width="195" align="right">
-                                    <div class="input-group discount mb-3">
-                                       <input type="number" name="discount" id="discount" dir="rtl" placeholder="0" autocomplete="off" class="discount-input form-control">
-                                       <div class="input-group-prepend ">
-                                          <span class="input-group-text discount-type-dollar d-none">$</span>
-                                       </div>
-                                       <div class="input-group-append">
-                                          <span class="input-group-text discount-type-prcent">%</span>
-                                       </div>
-                                       <div id="discount-type" class="input-group-append">
-                                          <button class="btn dropdown-toggle tax-type-btn" type="button" id="discount-type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          </button>
-                                          <ul class="dropdown-menu dropdown-menu-right" id="discount-type-selector" aria-labelledby="dropdownMenuButton">
-                                             <li class="dropdown-item">Flat($)</li>
-                                             <li class="dropdown-item active">Percent(%)</li>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </td>
-                                 <td width="20"><button type="button" name="remove" id="" class="btn delete-btn">&times;</button></td>
-                              </tr>
-                              <tr id="" class="input-type-row d-none">
-                                 <td width="195" align="right"><label class="m-0 mr-4">Shipping</label></td>
-                                 <td width="195" align="right">
-                                    <div class="input-group shipping mb-3">
-                                       <input type="number" name="shipping" id="shipping-input" dir="rtl" placeholder="0" autocomplete="off" class="shipping-input form-control">
-                                       <div class="input-group-prepend ">
-                                          <span class="input-group-text shipping-type-dollar d-none">$</span>
-                                       </div>
-                                       <div class="input-group-append">
-                                          <span class="input-group-text shipping-type-prcent">%</span>
-                                       </div>
-                                       <div id="shipping-type" class="input-group-append">
-                                          <button class="btn dropdown-toggle tax-type-btn" type="button" id="shipping-type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          </button>
-                                          <ul class="dropdown-menu dropdown-menu-right" id="shipping-type-selector" aria-labelledby="dropdownMenuButton">
-                                             <li class="dropdown-item">Flat($)</li>
-                                             <li class="dropdown-item active">Percent(%)</li>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </td>
-                                 <td width="20"><button type="button" name="remove" id="" class="btn delete-btn">&times;</button></td>
-                              </tr>
-                           </table>
-                        </div>
-                        <table align="right">
-                           <tr>
-                              <td></td>
-                              <td width="195" align="right">
-                                 <button type="button" id="" class="btn btn-primary show-btn mb-4">+ Discount</button>
-                                 <button type="button" id="" class="btn btn-primary show-btn mb-4">+ Shipping</button>
-                              </td>
-                              <td width="20"></td>
-                           </tr>
-                        </table>
-                        <table width="100%">
-                           <tr>
-                              <td width="195" align="right"><label class="mr-4">Total</label></td>
-                              <td width="195" align="right"><span class="mb-3 total" id="grandTotal">$0.00</span></td>
-                              <td width="20"></td>
-                           </tr>
-                           <tr>
-                              <td width="195" align="right"><label class="m-0 mr-4">Amount Paid</label></td>
-                              <td width="195" align="right">
-                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                       <span class="input-group-text" id="payment-input-text">$</span>
-                                    </div>
-                                    <input type="number" class="payment-input form-control" placeholder="0" >
-                                 </div>
-                              </td>
-                              <td width="20"></td>
-                           </tr>
-                           <tr>
-                              <td width="195" align="right"><label class="m-0 mr-4">Balance Due</label></td>
-                              <td width="195" align="right"><span class="mb-3">$0.00</span></td>
-                              <td width="20"></td>
-                           </tr>
-                        </table>
-                     </div>
-                  </div> -->
                </div>
                <div class="col-md-3 col-sm-12">
                   <div class="sidebar">
