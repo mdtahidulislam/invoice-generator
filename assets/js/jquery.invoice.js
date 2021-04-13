@@ -143,10 +143,21 @@ Invoice.prototype = {
                                 - Number(dispercent)
                                 + Number(shippercent);
                             grandTotal = self.roundNumber(grandTotal, 2);
-                            jQuery($.opt.grandTotal).html(grandTotal);
+                            jQuery($.opt.grandTotal).val(grandTotal);
+
+                            // resize input length according to value
+                            var input = document.querySelector('#grandTotal'); 
+                            input.style.width = input.value.length + "ch";
+
                         var paidAmount = Number($('.payment-input').val());
-                        var dueBalance = Number(grandTotal - paidAmount); 
-                        jQuery($.opt.duebalance).html(dueBalance);   
+                        var dueBalance = Number(grandTotal - paidAmount);
+                        dueBalance = self.roundNumber(dueBalance, 2);
+                        jQuery($.opt.duebalance).val(dueBalance);
+
+                        // resize input length according to value
+                        var dbinput = document.querySelector('#duebalance'); 
+                        dbinput.style.width = dbinput.value.length + "ch";
+
                     } else if ($shipactiveText === 'Flat($)') {
                         shipFlat = Number(shipVal);
                         var grandTotal = Number(jQuery($.opt.subtotal).html())
@@ -154,10 +165,21 @@ Invoice.prototype = {
                                 - Number(dispercent)
                                 + Number(shipFlat);
                             grandTotal = self.roundNumber(grandTotal, 2);
-                            jQuery($.opt.grandTotal).html(grandTotal);
+                            jQuery($.opt.grandTotal).val(grandTotal);
+
+                            // resize input length according to value
+                            var input = document.querySelector('#grandTotal'); 
+                            input.style.width = input.value.length + "ch";
+
                         var paidAmount = Number($('.payment-input').val());
-                        var dueBalance = Number(grandTotal - paidAmount); 
-                        jQuery($.opt.duebalance).html(dueBalance);
+                        var dueBalance = Number(grandTotal - paidAmount);
+                        dueBalance = self.roundNumber(dueBalance, 2);
+                        jQuery($.opt.duebalance).val(dueBalance);
+
+                        // resize input length according to value
+                        var dbinput = document.querySelector('#duebalance'); 
+                        dbinput.style.width = dbinput.value.length + "ch"; 
+
                     }
                     
                 } else if ($disactiveText === 'Flat($)') {
@@ -170,10 +192,21 @@ Invoice.prototype = {
                                 - Number(disFlat)
                                 + Number(shippercent);
                             grandTotal = self.roundNumber(grandTotal, 2);
-                            jQuery($.opt.grandTotal).html(grandTotal);
+                            jQuery($.opt.grandTotal).val(grandTotal);
+
+                            // resize input length according to value
+                            var input = document.querySelector('#grandTotal'); 
+                            input.style.width = input.value.length + "ch";
+
                         var paidAmount = Number($('.payment-input').val());
-                        var dueBalance = Number(grandTotal - paidAmount); 
-                        jQuery($.opt.duebalance).html(dueBalance);
+                        var dueBalance = Number(grandTotal - paidAmount);
+                        dueBalance = self.roundNumber(dueBalance, 2);
+                        jQuery($.opt.duebalance).val(dueBalance);
+
+                        // resize input length according to value
+                        var dbinput = document.querySelector('#duebalance'); 
+                        dbinput.style.width = dbinput.value.length + "ch";
+
                     } else if ($shipactiveText === 'Flat($)') {
                         shipFlat = Number(shipVal);
                         var grandTotal = Number(jQuery($.opt.subtotal).html())
@@ -181,10 +214,20 @@ Invoice.prototype = {
                                 - Number(disFlat)
                                 + Number(shipFlat);
                             grandTotal = self.roundNumber(grandTotal, 2);
-                            jQuery($.opt.grandTotal).html(grandTotal);
+                            jQuery($.opt.grandTotal).val(grandTotal);
+
+                            // resize input length according to value
+                            var input = document.querySelector('#grandTotal'); 
+                            input.style.width = input.value.length + "ch";
+
                         var paidAmount = Number($('.payment-input').val());
                         var dueBalance = Number(grandTotal - paidAmount); 
-                        jQuery($.opt.duebalance).html(dueBalance);
+                        dueBalance = self.roundNumber(dueBalance, 2);
+                        jQuery($.opt.duebalance).val(dueBalance);
+
+                        // resize input length according to value
+                        var dbinput = document.querySelector('#duebalance'); 
+                        dbinput.style.width = dbinput.value.length + "ch";
                     }
                 }
                 
@@ -201,10 +244,21 @@ Invoice.prototype = {
                                 - Number(dispercent)
                                 + Number(shippercent);
                             grandTotal = self.roundNumber(grandTotal, 2);
-                            jQuery($.opt.grandTotal).html(grandTotal);
+                            jQuery($.opt.grandTotal).val(grandTotal);
+
+                            // resize input length according to value
+                            var input = document.querySelector('#grandTotal'); 
+                            input.style.width = input.value.length + "ch";
+
                         var paidAmount = Number($('.payment-input').val());
-                        var dueBalance = Number(grandTotal - paidAmount); 
-                        jQuery($.opt.duebalance).html(dueBalance);
+                        var dueBalance = Number(grandTotal - paidAmount);
+                        dueBalance = self.roundNumber(dueBalance, 2);
+                        jQuery($.opt.duebalance).val(dueBalance);
+
+                        // resize input length according to value
+                        var dbinput = document.querySelector('#duebalance'); 
+                        dbinput.style.width = dbinput.value.length + "ch";
+
                     } else if ($shipactiveText === 'Flat($)') {
                         shipFlat = Number(shipVal);
                         var grandTotal = Number(jQuery($.opt.subtotal).html())
@@ -212,10 +266,20 @@ Invoice.prototype = {
                                 - Number(dispercent)
                                 + Number(shipFlat);
                             grandTotal = self.roundNumber(grandTotal, 2);
-                            jQuery($.opt.grandTotal).html(grandTotal);
+                            jQuery($.opt.grandTotal).val(grandTotal);
+
+                            // resize input length according to value
+                            var input = document.querySelector('#grandTotal'); 
+                            input.style.width = input.value.length + "ch";
+
                         var paidAmount = Number($('.payment-input').val());
-                        var dueBalance = Number(grandTotal - paidAmount); 
-                        jQuery($.opt.duebalance).html(dueBalance);
+                        var dueBalance = Number(grandTotal - paidAmount);
+                        dueBalance = self.roundNumber(dueBalance, 2);
+                        jQuery($.opt.duebalance).val(dueBalance);
+
+                        // resize input length according to value
+                        var dbinput = document.querySelector('#duebalance'); 
+                        dbinput.style.width = dbinput.value.length + "ch";
                     }
                 } else if ($disactiveText === 'Flat($)') {
                     disFlat = Number(disVal);
@@ -227,10 +291,20 @@ Invoice.prototype = {
                                 - Number(disFlat)
                                 + Number(shippercent);
                             grandTotal = self.roundNumber(grandTotal, 2);
-                            jQuery($.opt.grandTotal).html(grandTotal);
+                            jQuery($.opt.grandTotal).val(grandTotal);
+
+                            // resize input length according to value
+                            var input = document.querySelector('#grandTotal'); 
+                            input.style.width = input.value.length + "ch";
+
                         var paidAmount = Number($('.payment-input').val());
-                        var dueBalance = Number(grandTotal - paidAmount); 
-                        jQuery($.opt.duebalance).html(dueBalance);
+                        var dueBalance = Number(grandTotal - paidAmount);
+                        dueBalance = self.roundNumber(dueBalance, 2);
+                        jQuery($.opt.duebalance).val(dueBalance);
+
+                        // resize input length according to value
+                        var dbinput = document.querySelector('#duebalance'); 
+                        dbinput.style.width = dbinput.value.length + "ch";
                     } else if ($shipactiveText === 'Flat($)') {
                         shipFlat = Number(shipVal);
                         var grandTotal = Number(jQuery($.opt.subtotal).html())
@@ -238,10 +312,20 @@ Invoice.prototype = {
                                 - Number(disFlat)
                                 + Number(shipFlat);
                             grandTotal = self.roundNumber(grandTotal, 2);
-                            jQuery($.opt.grandTotal).html(grandTotal);
+                            jQuery($.opt.grandTotal).val(grandTotal);
+
+                            // resize input length according to value
+                            var input = document.querySelector('#grandTotal'); 
+                            input.style.width = input.value.length + "ch";
+
                         var paidAmount = Number($('.payment-input').val());
-                        var dueBalance = Number(grandTotal - paidAmount); 
-                        jQuery($.opt.duebalance).html(dueBalance);
+                        var dueBalance = Number(grandTotal - paidAmount);
+                        dueBalance = self.roundNumber(dueBalance, 2);
+                        jQuery($.opt.duebalance).val(dueBalance);
+
+                        // resize input length according to value
+                        var dbinput = document.querySelector('#duebalance'); 
+                        dbinput.style.width = dbinput.value.length + "ch";
                     }
                 }
             } 

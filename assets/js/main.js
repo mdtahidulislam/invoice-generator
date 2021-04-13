@@ -79,6 +79,11 @@ $(document).ready(function(){
                 //taxInput.setAttribute('dir', 'rtl');
                 taxTypePercent.innerHTML = '%';
                 taxTypeDollar.classList.add('d-none');
+                let taxpeflat = document.querySelector('#tax');
+                taxpeflat.parentElement.removeChild(taxpeflat);
+                $('.tax').prepend(`
+                <input type="number" name="taxpercent" id="tax" dir="rtl" placeholder="0" autocomplete="off" class="tax-input form-control">
+                `);
             } else if(selectedtype === 'Flat($)') {
                 taxTypePercent.innerHTML = '';
                 //taxInput.setAttribute('placeholder', '0');
@@ -144,6 +149,11 @@ $(document).ready(function(){
                 //discountInput.setAttribute('dir', 'rtl');
                 discountTypePercent.innerHTML = '%';
                 discountTypeDollar.classList.add('d-none');
+                let discountflat = document.querySelector('#discount');
+                discountflat.parentElement.removeChild(discountflat);
+                $('.discount').prepend(`
+                <input type="number" name="discountpercent" id="discount" dir="rtl" placeholder="0" autocomplete="off" class="discount-input form-control">
+                `);
             } else if(selectedtype === 'Flat($)') {
                 discountTypePercent.innerHTML = '';
                 //discountInput.setAttribute('placeholder', '0');
@@ -180,6 +190,11 @@ $(document).ready(function(){
                 //shippingInput.setAttribute('dir', 'rtl');
                 shippingTypePercent.innerHTML = '%';
                 shippingTypeDollar.classList.add('d-none');
+                let shippingflat = document.querySelector('#shipping');
+                shippingflat.parentElement.removeChild(shippingflat);
+                $('.shipping').prepend(`
+                <input type="number" name="shippingpercent" id="shipping" dir="rtl" placeholder="0" autocomplete="off" class="shipping-input form-control">
+                `);
             } else if(selectedtype === 'Flat($)') {
                 shippingTypePercent.innerHTML = '';
                 //shippingInput.setAttribute('placeholder', '0');
@@ -193,6 +208,9 @@ $(document).ready(function(){
             }
         });
     });
+
+    // resize grandtotal input size
+    
 
     // $('.sendbtn').click(function(e){
     //     e.preventDefault();

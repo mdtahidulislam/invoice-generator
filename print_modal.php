@@ -15,10 +15,10 @@
                     $infosql = mysqli_query($conn, $info);
                     $inforesult = mysqli_fetch_assoc($infosql);
                 ?>
-                <table class="table table-responsive">
+                <table class="table table-responsive pdf-table">
                     <tr>
-                        <td>
-                            <table>
+                        <td width="650px">
+                            <table class="table">
                                 <tr>
                                     <td>
                                         <img src="assets/images/zpc-logo.png" alt="">
@@ -33,19 +33,14 @@
                                 </tr>
                             </table>
                         </td>
-                        <td>
-                            <table>
+                        <td width="650px">
+                            <table class="table">
                                 <tr>
-                                    <td>
+                                    <td colspan="2">
                                         <div class="inv-title">
                                         <h1 class="mb-3 text-right">INVOICE</h1>
                                         <div class="inv-number">
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1">#</span>
-                                                </div>
-                                                <input type="text" dir="rtl" name="inv_num" class="form-control inv-num-input" value="<?php echo $inforesult['invnumber']; ?>" readonly>
-                                            </div>
+                                            #<?php echo $inforesult['invnumber']; ?>
                                         </div>
                                         </div>
                                     </td>
@@ -142,117 +137,105 @@
                                        <tr>
                                           <td></td>
                                           <td></td>
+                                          <?php
+                                             if($inforesult['taxpercent'] > 0) {
+                                          ?>
                                           <td class="text-right">Tax</td>
                                           <td>
-                                             <div class="input-group tax mb-3">
-                                                <input type="number" name="tax" id="tax" dir="rtl" placeholder="0" autocomplete="off" class="tax-input form-control">
-                                                <div class="input-group-prepend ">
-                                                   <span class="input-group-text tax-type-dollar d-none">$</span>
-                                                </div>
-                                                <div class="input-group-append">
-                                                   <span class="input-group-text tax-type-prcent">%</span>
-                                                </div>
-                                                <div id="tax-type" class="input-group-append">
-                                                   <button class="btn dropdown-toggle tax-type-btn" type="button" id="tax-type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                   </button>
-                                                   <ul class="dropdown-menu dropdown-menu-right" id="tax-type-selector" aria-labelledby="dropdownMenuButton">
-                                                      <li class="dropdown-item">Flat($)</li>
-                                                      <li class="dropdown-item active" name="percent">Percent(%)</li>
-                                                   </ul>
-                                                </div>
+                                             <div class="text-right">
+                                                <span class="taxpercent"><?php echo $inforesult['taxpercent']; ?></span>%
                                              </div>
                                           </td>
-                                       </tr>
-                                       <tr class="input-type-row d-none">
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-right">Discount</td>
+                                          <?php      
+                                             };
+                                          ?>
+                                          <?php
+                                             if($inforesult['taxflat'] > 0) {
+                                          ?>
+                                          <td class="text-right">Tax</td>
                                           <td>
-                                             <!-- <input class="form-control" id="discount" value="0" type="text"> -->
-                                             <div class="input-group discount mb-3">
-                                                <input type="number" name="discount" id="discount" dir="rtl" placeholder="0" autocomplete="off" class="discount-input form-control">
-                                                <div class="input-group-prepend ">
-                                                   <span class="input-group-text discount-type-dollar d-none">$</span>
-                                                </div>
-                                                <div class="input-group-append">
-                                                   <span class="input-group-text discount-type-prcent">%</span>
-                                                </div>
-                                                <div id="discount-type" class="input-group-append">
-                                                   <button class="btn dropdown-toggle tax-type-btn" type="button" id="discount-type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                   </button>
-                                                   <ul class="dropdown-menu dropdown-menu-right" id="discount-type-selector" aria-labelledby="dropdownMenuButton">
-                                                      <li class="dropdown-item">Flat($)</li>
-                                                      <li class="dropdown-item active">Percent(%)</li>
-                                                   </ul>
-                                                </div>
+                                             <div class="text-right">
+                                                <span class="taxflat">$<?php echo $inforesult['taxflat']; ?></span>
                                              </div>
                                           </td>
-                                          <td>
-                                             <button type="button" name="remove" id="" class="btn delete-btn">&times;</button>
-                                          </td>
-                                       </tr>
-                                       <tr class="input-type-row d-none">
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-right">Shipping</td>
-                                          <td>
-                                             <div class="input-group shipping mb-3">
-                                                <input type="number" name="shipping" id="shipping" dir="rtl" placeholder="0" autocomplete="off" class="shipping-input form-control">
-                                                <div class="input-group-prepend ">
-                                                   <span class="input-group-text shipping-type-dollar d-none">$</span>
-                                                </div>
-                                                <div class="input-group-append">
-                                                   <span class="input-group-text shipping-type-prcent">%</span>
-                                                </div>
-                                                <div id="shipping-type" class="input-group-append">
-                                                   <button class="btn dropdown-toggle tax-type-btn" type="button" id="shipping-type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                   </button>
-                                                   <ul class="dropdown-menu dropdown-menu-right" id="shipping-type-selector" aria-labelledby="dropdownMenuButton">
-                                                      <li class="dropdown-item">Flat($)</li>
-                                                      <li class="dropdown-item active">Percent(%)</li>
-                                                   </ul>
-                                                </div>
-                                             </div>
-                                          </td>
-                                          <td>
-                                             <button type="button" name="remove" id="" class="btn delete-btn">&times;</button>
-                                          </td>
+                                          <?php      
+                                             };
+                                          ?>
                                        </tr>
                                        <tr>
                                           <td></td>
                                           <td></td>
-                                          <td></td>
-                                          <td width="195" align="right">
-                                             <button type="button" id="" class="btn btn-primary show-btn mb-4">+ Discount</button>
-                                             <button type="button" id="" class="btn btn-primary show-btn mb-4">+ Shipping</button>
+                                          <?php
+                                                if($inforesult['discountpercent'] > 0) {
+                                          ?>
+                                          <td class="text-right">Discount</td>
+                                          <td>
+                                             <div class="text-right">
+                                                <span class="discountpercent"><?php echo $inforesult['discountpercent']; ?></span>%
+                                             </div>
                                           </td>
-                                          <td width="20"></td>
+                                          <?php      
+                                             };
+                                          ?>
+                                          <?php
+                                             if($inforesult['discountflat'] > 0) {
+                                          ?>
+                                          <td class="text-right">Discount</td>
+                                          <td>
+                                             <div class="text-right">
+                                                $<span class="discountflat"><?php echo $inforesult['discountflat']; ?></span>
+                                             </div>
+                                          </td>
+                                          <?php      
+                                             };
+                                          ?>
+                                       </tr>
+                                       <tr>
+                                          <td></td>
+                                          <td></td>
+                                          <?php
+                                             if($inforesult['shippingpercent'] > 0) {
+                                          ?>
+                                          <td class="text-right">Shipping</td>
+                                          <td>
+                                             <div class="text-right">
+                                                <span class="shippingpercent"><?php echo $inforesult['shippingpercent']; ?></span>%
+                                             </div>
+                                          </td>
+                                          <?php      
+                                             };
+                                          ?>
+                                          <?php
+                                             if($inforesult['shippingflat'] > 0) {
+                                          ?>
+                                          <td class="text-right">Shipping</td>
+                                          <td>
+                                             <div class="text-right">
+                                                $<span class="shippingflat"><?php echo $inforesult['shippingflat']; ?></span>
+                                             </div>
+                                          </td>
+                                          <?php      
+                                             };
+                                          ?>
                                        </tr>
                                        <tr>
                                           <td></td>
                                           <td></td>
                                           <td class="text-right">Total</td>
-                                          <td class="text-right">$<span id="grandTotal">0</span></td>
+                                          <td class="text-right">$ <span class="grandtotal"><?php echo $inforesult['grandtotal']; ?></span></td>
                                        </tr>
                                        <tr>
                                           <td></td>
                                           <td></td>
                                           <td class="text-right">Amount Paid</td>
-                                          <td class="text-right">
-                                             <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                   <span class="input-group-text" id="payment-input-text">$</span>
-                                                </div>
-                                                <input type="text" name="paidamount" id="paidamount" class="payment-input form-control" placeholder="0" >
-                                             </div>
-                                          </td>
+                                          <td class="text-right">$ <span class="paidamount"><?php echo $inforesult['paidamount']; ?></span></td>
                                           <td></td>
                                        </tr>
                                        <tr>
                                           <td></td>
                                           <td></td>
                                           <td class="text-right">Balance Due</td>
-                                          <td class="text-right">$<span class="mb-3" id="duebalance">$0.00</span></td>
+                                          <td class="text-right">$ <span class="duebalance"><?php echo $inforesult['duebalance']; ?></td>
                                           <td></td>
                                        </tr>
                                     </table>
@@ -261,12 +244,8 @@
                            </table>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <button onclick="print()" class="btn btn-primary">Print</button>
-                        </td>
-                    </tr>
                 </table>
+               <button  class="btn btn-primary" onclick="print()">Print</button>
             </div>
         </div>
     </div>

@@ -241,7 +241,8 @@
                                           <td></td>
                                           <td></td>
                                           <td class="text-right">Total</td>
-                                          <td class="text-right">$<span id="grandTotal">0</span></td>
+                                          <!-- <td class="text-right">$<span id="grandTotal">0</span></td> -->
+                                          <td class="text-right">$ <input type="text" name="grandtotal" id="grandTotal"> </td>
                                        </tr>
                                        <tr>
                                           <td></td>
@@ -261,7 +262,8 @@
                                           <td></td>
                                           <td></td>
                                           <td class="text-right">Balance Due</td>
-                                          <td class="text-right">$<span class="mb-3" id="duebalance">$0.00</span></td>
+                                          <!-- <td class="text-right">$<span class="mb-3" id="duebalance">$0.00</span></td> -->
+                                          <td class="text-right">$ <input type="text" name="duebalance" id="duebalance" readonly></td>
                                           <td></td>
                                        </tr>
                                     </table>
