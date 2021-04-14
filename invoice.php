@@ -95,15 +95,15 @@
                                     <th>Item</th>
                                     <th>Quantity</th>
                                     <th>Rate</th>
-                                    <th>Total</th>
+                                    <th class="total-th">Total</th>
                                     <th></th>
                                  </tr>
                               </thead>
                               <tbody>
                                  <tr class="item-row" id="row">
                                     <td width="350"><input class="form-control item" name="item[]" placeholder="Item" type="text"></td>
-                                    <td><input class="form-control qty" name="qty[]" placeholder="Quantity" type="text"></td>
-                                    <td><input class="form-control price" name="rate[]" placeholder="Rate" type="text"></td>
+                                    <td width="100"><input class="form-control qty" name="qty[]" placeholder="Quantity" type="text"></td>
+                                    <td width="150"><input class="form-control price" name="rate[]" placeholder="Rate" type="text"></td>
                                     <td class="text-right">$<span class="total">0.00</span></td>
                                     <td></td>
                                  </tr>
@@ -146,7 +146,8 @@
                                           <td></td>
                                           <td></td>
                                           <td class="text-right">Sub Total</td>
-                                          <td class="text-right">$<span id="subtotal">0.00</span></td>
+                                          <!-- <td class="text-right">$<span id="subtotal">0.00</span></td> -->
+                                          <td class="text-right">$ <input type="text" name="subtotal" id="subtotal"> 
                                        </tr>
                                        <tr>
                                           <td></td>

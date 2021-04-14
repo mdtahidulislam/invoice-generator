@@ -48,11 +48,12 @@
         $discountflat=$_POST['discountflat'];
         $shippingpercent=$_POST['shippingpercent'];
         $shippingflat=$_POST['shippingflat'];
+        $subtotal=$_POST['subtotal'];
         $grandtotal = $_POST['grandtotal'];
         $paidamount=$_POST['paidamount'];
         $duebalance = $_POST['duebalance'];
         // insert data into tbl_info
-        $query = "INSERT INTO tbl_info(logo, invnumber, username, fromto, billto, shipto, invdate, payterms, duedate, notes, terms, taxpercent, taxflat, discountpercent, discountflat, shippingpercent,shippingflat, grandtotal, paidamount, duebalance) VALUES('$img_upload','$invnum','$username','$fromto','$billto','$shipto','$date','$payterms','$duedate','$notes','$terms', '$taxpercent', '$taxflat', '$discountpercent', '$discountflat', '$shippingpercent','$shippingflat','$grandtotal', '$paidamount', '$duebalance')";
+        $query = "INSERT INTO tbl_info(logo, invnumber, username, fromto, billto, shipto, invdate, payterms, duedate, notes, terms, taxpercent, taxflat, discountpercent, discountflat, shippingpercent,shippingflat,subtotal, grandtotal, paidamount, duebalance) VALUES('$img_upload','$invnum','$username','$fromto','$billto','$shipto','$date','$payterms','$duedate','$notes','$terms', '$taxpercent', '$taxflat', '$discountpercent', '$discountflat', '$shippingpercent','$shippingflat','$subtotal','$grandtotal', '$paidamount', '$duebalance')";
         $query_run = mysqli_query($conn, $query);
 
         // insert data into tbl_item
@@ -67,7 +68,9 @@
                 $iquery_run = mysqli_query($conn, $iquery);
             }
         }
-        
+        header('Location: send.php');
+    }
+    if (isset($_POST['print-btn'])) {
         header('Location: send.php');
     }
 ?>

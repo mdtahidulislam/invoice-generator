@@ -333,7 +333,8 @@ input.payment-input {
 
 /* auto resize style */
 input#grandTotal,
-input#duebalance {
+input#duebalance,
+input#subtotal {
     border: none;
 	font-size: 16px;
     color: #000 !important;
@@ -356,4 +357,19 @@ input#duebalance {
 
 .modal-dialog {
 	max-width: 95vw;
-  }
+	top: -18px;
+}
+
+tr.item-row.item-head,
+.table-hover tbody tr.item-head:hover {
+    background: #393939;
+    color: #fff;
+}
+
+table.pdf-table td {
+    padding: 0 .75rem;
+}
+
+.table-hover tbody tr:hover {
+    background-color: inherit;
+}

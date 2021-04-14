@@ -58,7 +58,7 @@
     var i = 0;
     $("#add").click(function(){
       i++;
-      $('#dynamic_field').prepend('<tr class="item-row" id="row'+i+'"><td width="350"><input class="form-control item" name="item[]" placeholder="Item" type="text"></td><td><input class="form-control qty" name="qty[]" placeholder="Quantity" type="text"></td><td><input class="form-control price" name="rate[]" placeholder="Rate" type="text"></td><td class="text-right">$<span class="total">0.00</span></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
+      $('#dynamic_field').prepend('<tr class="item-row" id="row'+i+'"><td width="350"><input class="form-control item" name="item[]" placeholder="Item" type="text"></td><td width="100"><input class="form-control qty" name="qty[]" placeholder="Quantity" type="text"></td><td width="150"><input class="form-control price" name="rate[]" placeholder="Rate" type="text"></td><td class="text-right">$<span class="total">0.00</span></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
     });
     $(document).on('click', '.btn_remove', function(){  
       var button_id = $(this).attr("id");   

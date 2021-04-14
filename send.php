@@ -64,8 +64,8 @@ if(!$mail->send()) {
             <div class="row">
                 <div class="col-md-6 offset-sm-3">
                     <button type="button" data-toggle="modal" data-target="#sendmail" name="sendmail" class="btn btn-primary btn-lg w-100 mb-4">Send Invoice on Mail</button>
-                    <a href="https://www.messenger.com/" name="sendmassenger" class="btn btn-primary btn-lg w-100 mb-4">Send Invoice on Messenger</a>
-                    <a href="https://www.whatsapp.com/" name="sendwhatsapp" class="btn btn-primary btn-lg w-100 mb-4">Send Invoice on Whatsapp</a>
+                    <a href="https://www.messenger.com/" target="_blank" name="sendmassenger" class="btn btn-primary btn-lg w-100 mb-4">Send Invoice on Messenger</a>
+                    <a href="https://www.whatsapp.com/" target="_blank" name="sendwhatsapp" class="btn btn-primary btn-lg w-100 mb-4">Send Invoice on Whatsapp</a>
                     <a href="download.php" class="btn btn-link btn-block btn-lg w-100 mb-4 inv-down">Download Invoice</a>
                     <hr class="mb-4">
                     <div class="my-invoic-btn text-center">

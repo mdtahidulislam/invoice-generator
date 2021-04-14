@@ -1,6 +1,20 @@
+@page 
+    {
+        size: A4;   /* auto is the initial value */
+        margin: 0;  /* this affects the margin in the printer settings */
+    }
+
 .top-logo {
     display: none;
 }
+
+
+.close-img,
+.user-logout,
+#add {
+    display: none;
+}
+
 .col-md-9 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 75%;
@@ -19,3 +33,44 @@ table {
 .table td, .table th {
     padding: 0.2rem;
 }
+
+form.invoice input, 
+form.invoice textarea,
+form.invoice button,
+.input-group-text {
+    border: none;
+    background: transparent;
+}
+
+form.invoice button,
+.print-btn,
+.modal-header {
+    display: none;
+}
+.total-th {
+    text-align: right;
+}
+.btn_remove {
+    visibility: hidden;
+    opacity: 0;
+}
+
+tr.item-row.item-head {
+    background: #393939;
+    color: #fff;
+}
+
+
+
+body.modalprinter * {
+    visibility: hidden;
+}
+
+body.modalprinter .modal-dialog.focused {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: 0;
+}
+

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container user-logout">
     <div class="row">
         <div class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-2">
             <?php

@@ -93,7 +93,7 @@ Invoice.prototype = {
 
          subtotal = self.roundNumber(subtotal, 2);
 
-         jQuery($.opt.subtotal).html(subtotal);
+         jQuery($.opt.subtotal).val(subtotal);
 
          return 1;
      },
@@ -116,14 +116,14 @@ Invoice.prototype = {
 
             // if ($activeText === 'Percent(%)') {
             //     dispercent = (disVal / 100);
-            //     var grandTotal = Number(jQuery($.opt.subtotal).html())
+            //     var grandTotal = Number(jQuery($.opt.subtotal).val())
             //            - Number(dispercent)
             //            + Number(jQuery($.opt.shipping).val());
             //         grandTotal = self.roundNumber(grandTotal, 2);
             //         jQuery($.opt.grandTotal).html(grandTotal);
             // } else if ($activeText === 'Flat($)'){
             //     disFlat = Number(disVal);
-            //     var grandTotal = Number(jQuery($.opt.subtotal).html())
+            //     var grandTotal = Number(jQuery($.opt.subtotal).val())
             //             - Number(disFlat)
             //             + Number(jQuery($.opt.shipping).val());
             //         grandTotal = self.roundNumber(grandTotal, 2);
@@ -131,14 +131,16 @@ Invoice.prototype = {
             // } 
 
             if ($taxactiveText === 'Percent(%)') {
-                taxpercent = (taxVal / 100);
+                taxpercent = (taxVal * Number(jQuery($.opt.subtotal).val())) / 100;
                 var $disactiveText = $('ul#discount-type-selector li.active').text();
                 if ($disactiveText === 'Percent(%)') {
-                    dispercent = (disVal / 100);
+                    //dispercent = (disVal / 100);
+                    dispercent = (disVal * Number(jQuery($.opt.subtotal).val())) / 100;
                     var $shipactiveText = $('ul#shipping-type-selector li.active').text();
                     if ($shipactiveText === 'Percent(%)') {
-                        shippercent = (shipVal / 100);
-                        var grandTotal = Number(jQuery($.opt.subtotal).html())
+                        //shippercent = (shipVal / 100);
+                        shippercent = (shipVal * Number(jQuery($.opt.subtotal).val())) / 100;
+                        var grandTotal = Number(jQuery($.opt.subtotal).val())
                                 + Number(taxpercent)
                                 - Number(dispercent)
                                 + Number(shippercent);
@@ -157,10 +159,13 @@ Invoice.prototype = {
                         // resize input length according to value
                         var dbinput = document.querySelector('#duebalance'); 
                         dbinput.style.width = dbinput.value.length + "ch";
+                        // resize input length according to value
+                        var subtotalinput = document.querySelector('#subtotal'); 
+                        subtotalinput.style.width = subtotalinput.value.length + "ch";
 
                     } else if ($shipactiveText === 'Flat($)') {
                         shipFlat = Number(shipVal);
-                        var grandTotal = Number(jQuery($.opt.subtotal).html())
+                        var grandTotal = Number(jQuery($.opt.subtotal).val())
                                 + Number(taxpercent)
                                 - Number(dispercent)
                                 + Number(shipFlat);
@@ -186,8 +191,9 @@ Invoice.prototype = {
                     disFlat = Number(disVal);
                     var $shipactiveText = $('ul#shipping-type-selector li.active').text();
                     if ($shipactiveText === 'Percent(%)') {
-                        shippercent = (shipVal / 100);
-                        var grandTotal = Number(jQuery($.opt.subtotal).html())
+                        //shippercent = (shipVal / 100);
+                        shippercent = (shipVal * Number(jQuery($.opt.subtotal).val())) / 100;
+                        var grandTotal = Number(jQuery($.opt.subtotal).val())
                                 + Number(taxpercent)
                                 - Number(disFlat)
                                 + Number(shippercent);
@@ -209,7 +215,7 @@ Invoice.prototype = {
 
                     } else if ($shipactiveText === 'Flat($)') {
                         shipFlat = Number(shipVal);
-                        var grandTotal = Number(jQuery($.opt.subtotal).html())
+                        var grandTotal = Number(jQuery($.opt.subtotal).val())
                                 + Number(taxpercent)
                                 - Number(disFlat)
                                 + Number(shipFlat);
@@ -235,11 +241,13 @@ Invoice.prototype = {
                 taxFlat = Number(taxVal);
                 var $disactiveText = $('ul#discount-type-selector li.active').text();
                 if ($disactiveText === 'Percent(%)') {
-                    dispercent = (disVal / 100);
+                    //dispercent = (disVal / 100);
+                    dispercent = (disVal * Number(jQuery($.opt.subtotal).val())) / 100;
                     var $shipactiveText = $('ul#shipping-type-selector li.active').text();
                     if ($shipactiveText === 'Percent(%)') {
-                        shippercent = (shipVal / 100);
-                        var grandTotal = Number(jQuery($.opt.subtotal).html())
+                        //shippercent = (shipVal / 100);
+                        shippercent = (shipVal * Number(jQuery($.opt.subtotal).val())) / 100;
+                        var grandTotal = Number(jQuery($.opt.subtotal).val())
                                 + Number(taxFlat)
                                 - Number(dispercent)
                                 + Number(shippercent);
@@ -261,7 +269,7 @@ Invoice.prototype = {
 
                     } else if ($shipactiveText === 'Flat($)') {
                         shipFlat = Number(shipVal);
-                        var grandTotal = Number(jQuery($.opt.subtotal).html())
+                        var grandTotal = Number(jQuery($.opt.subtotal).val())
                                 + Number(taxFlat)
                                 - Number(dispercent)
                                 + Number(shipFlat);
@@ -285,8 +293,9 @@ Invoice.prototype = {
                     disFlat = Number(disVal);
                     var $shipactiveText = $('ul#shipping-type-selector li.active').text();
                     if ($shipactiveText === 'Percent(%)') {
-                        shippercent = (shipVal / 100);
-                        var grandTotal = Number(jQuery($.opt.subtotal).html())
+                        //shippercent = (shipVal / 100);
+                        shippercent = (shipVal * Number(jQuery($.opt.subtotal).val())) / 100;
+                        var grandTotal = Number(jQuery($.opt.subtotal).val())
                                 + Number(taxFlat)
                                 - Number(disFlat)
                                 + Number(shippercent);
@@ -307,7 +316,7 @@ Invoice.prototype = {
                         dbinput.style.width = dbinput.value.length + "ch";
                     } else if ($shipactiveText === 'Flat($)') {
                         shipFlat = Number(shipVal);
-                        var grandTotal = Number(jQuery($.opt.subtotal).html())
+                        var grandTotal = Number(jQuery($.opt.subtotal).val())
                                 + Number(taxFlat)
                                 - Number(disFlat)
                                 + Number(shipFlat);
