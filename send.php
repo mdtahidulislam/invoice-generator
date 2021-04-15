@@ -87,6 +87,7 @@ if(!$mail->send()) {
             </div>
 		</div>
 	</section>
+  <!-- send invoice modal -->
 <div class="modal fade" id="sendmail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

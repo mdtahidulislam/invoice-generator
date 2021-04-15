@@ -1,8 +1,7 @@
-@page 
-    {
-        size: A4;   /* auto is the initial value */
-        margin: 0;  /* this affects the margin in the printer settings */
-    }
+@page{
+    size: A4;
+    margin: 0;
+}
 
 .top-logo {
     display: none;
@@ -61,16 +60,9 @@ tr.item-row.item-head {
 }
 
 
+/* .printable {display:block;}
+.non-printable {opacity:0;} */
 
-body.modalprinter * {
-    visibility: hidden;
+.modal {
+    background: #fff !important;
 }
-
-body.modalprinter .modal-dialog.focused {
-    position: absolute;
-    padding: 0;
-    margin: 0;
-    left: 0;
-    top: 0;
-}
-

@@ -66,6 +66,15 @@
     });
   });
 </script>
+<script>
+  $('.print-btn').on('click', function(e){
+    
+        $('.printable').html($('.modal-body').html());
+        let ht = $('.printable').html();
+        console.log(ht);
+        //window.print();
+    });
+</script>
 
 </body>
 

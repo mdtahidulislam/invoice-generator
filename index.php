@@ -12,7 +12,7 @@
         $password = mysqli_real_escape_string($conn, $password);
 
         // check user
-        $uquery = "SELECT * FROM tbl_user WHERE userName = '$username' AND password = '$password'";
+        $uquery = "SELECT * FROM tbl_user WHERE username = '$username' AND password = '$password'";
         $uquery_run = mysqli_query($conn, $uquery);
         $urows = mysqli_num_rows($uquery_run);
         

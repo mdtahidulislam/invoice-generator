@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2021 at 01:46 PM
+-- Generation Time: Apr 15, 2021 at 01:43 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -141,7 +141,7 @@ INSERT INTO `tbl_info` (`iid`, `logo`, `invnumber`, `username`, `fromto`, `billt
 (82, 'assets/images/uploads/e08b649b4f.', '14042182', 'admin', '', '', '', '2021-04-14', 'adasd', '2021-04-15', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '112.00', '0.00', '112.00'),
 (83, 'assets/images/uploads/aa6bcb0488.', '14042183', 'admin', '', '', '', '2021-04-14', 'adasd', '2021-04-15', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '1000.00', '0.00', '1000.00'),
 (84, 'assets/images/uploads/243be6486b.', '14042184', 'admin', '', '', '', '2021-04-14', 'adasd', '2021-04-15', '', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '9999.99', '0.00', '9999.99'),
-(85, 'assets/images/uploads/ba3251fdbb.png', '14042185', 'admin', 'Tahidul', 'Zeropointcomputing,\r\nParamedical Rode', 'Rajshahi', '2021-04-14', 'bikash', '2021-04-15', 'Demo notes will goes here', 'Demo terms text goes here', '10.00', '0.00', '5.00', '0.00', '0.00', '0.00', '80000.00', '84000.00', '40000.00', '44000.00'),
+(85, 'assets/images/uploads/ba3251fdbb.png', '14042185', 'admin', 'Tahidul', 'Zeropointcomputing,\r\nParamedical Rode, Infront of Public Service Commission oFFICE', 'Rajshahi, lAXMIPUR, rAJPARA, vATAPARA, APEL dECORATOR ER mORE', '2021-04-14', 'bikash', '2021-04-15', 'Demo notes will goes here', 'Demo terms text goes here', '10.00', '0.00', '5.00', '0.00', '0.00', '0.00', '80000.00', '84000.00', '40000.00', '44000.00'),
 (86, 'assets/images/uploads/dafffa50cb.', '14042186', 'admin', 'asdasdad', 'asdasd', 'asdad', '2021-04-14', 'adasd', '2021-04-14', 'sadadsASD', 'ASDFASDFASFD', '0.00', '22.00', '0.00', '0.00', '0.00', '0.00', '2222.00', '2244.00', '100.00', '2144.00');
 
 -- --------------------------------------------------------
@@ -226,17 +226,20 @@ INSERT INTO `tbl_item` (`id`, `invnumber`, `username`, `item`, `quantity`, `rate
 
 CREATE TABLE `tbl_user` (
   `id` int(11) NOT NULL,
-  `userName` varchar(50) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(11) NOT NULL
+  `password` varchar(11) NOT NULL,
+  `signature` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`id`, `userName`, `email`, `password`) VALUES
-(1, 'admin', 'admin@gmail.com', 'admin');
+INSERT INTO `tbl_user` (`id`, `username`, `email`, `password`, `signature`) VALUES
+(1, 'admin', 'admin@gmail.com', 'admin', ''),
+(2, 'tahidul', 'tituphy355@gmail.com', 'tahidul', 'zpc-logo.png'),
+(3, 'tahidul', 'tituphy355@gmail.com', 'tahidul', 'images.png');
 
 --
 -- Indexes for dumped tables
@@ -280,7 +283,7 @@ ALTER TABLE `tbl_item`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -277,11 +277,13 @@
                </div>
                <div class="col-md-3 col-sm-12">
                   <div class="sidebar">
-                     <button type="submit" name="sendbtn" class="sendbtn btn btn-primary btn-lg w-100 mb-4" onclick="print()"> Send Invoice</button>
-                     <a href="download.php" class="btn btn-link btn-block btn-lg w-100 mb-4 inv-down">Download Invoice</a>
+                     <button type="submit" name="sendbtn" class="sendbtn btn btn-success btn-lg w-100 mb-4"> Save Invoice</button>
+                     <a href="send.php" class="btn btn-success btn-block btn-lg w-100 mb-4 inv-down">Send Invoice</a>
+                     <hr class="mb-4">
+                     <a href="download.php" class="btn btn-success btn-block btn-lg w-100 mb-4 inv-down">Download Invoice</a>
                      <hr class="mb-4">
                      <div class="my-invoic-btn text-center">
-                        <a href="#">My Invoices 
+                        <a href="download.php">My Invoices 
                         <span class="my-inv-num">
                            <?php
                               $username = $_SESSION['username'];

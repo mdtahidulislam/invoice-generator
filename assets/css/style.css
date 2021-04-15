@@ -357,7 +357,7 @@ input#subtotal {
 
 .modal-dialog {
 	max-width: 95vw;
-	top: -18px;
+	/* top: -18px; */
 }
 
 tr.item-row.item-head,
@@ -373,3 +373,7 @@ table.pdf-table td {
 .table-hover tbody tr:hover {
     background-color: inherit;
 }
+
+
+
+.printable{display:none;}

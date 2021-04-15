@@ -1,4 +1,4 @@
-<!-- <div class="printable"> -->
+
    <div class="modal fade" id="print<?php echo urldecode($row['invnumber']); ?>" tabindex="-1" role="dialog" aria-labelledby="addLabel" aria-hidden="true">
       <div class="modal-dialog">
          <div class="modal-content">
@@ -11,6 +11,7 @@
                <div class="modal-body">
                   <form action="create.php" method="post">
                   <?php
+                     
                      $invid = $row['invnumber'];
                      $username = $_SESSION['username'];
                      $info = "SELECT * FROM tbl_info WHERE invnumber = '$invid' AND username = '$username'";
@@ -246,8 +247,7 @@
          </div>
       </div>
    </div>
-<!-- </div> -->
-<!-- /.modal -->
+
 
 
 

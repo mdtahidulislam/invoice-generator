@@ -5,7 +5,7 @@
 <main>
 	<!--========================== START  SECTION ==========================-->
    <?php include('user-logout.php'); ?>
-	<section class="pb-3">
+	<section class="pb-3 non-printable">
 		<div class="container">
 			<div class="row">
                 <div class="col-md-12">
@@ -52,11 +52,12 @@
             </div>
 		</div>
 	</section>
+    <div class="printable"></div>
     
 	<!--========================== END  SECTION ============================-->
 </main>
 <!------------------------->
 <!----- END MAIN AREA ----->
 
-<?php include('print_modal.php');?>
+
 <?php include('footer.php'); ?>
