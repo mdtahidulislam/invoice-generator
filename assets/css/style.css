@@ -374,6 +374,15 @@ table.pdf-table td {
     background-color: inherit;
 }
 
-
-
 .printable{display:none;}
+
+.alert.alert-warning {
+    max-width: 537px;
+    margin: 0 auto;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+input.form-control {
+    font-size: 16px;
+}

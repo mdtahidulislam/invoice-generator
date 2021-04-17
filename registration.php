@@ -9,17 +9,17 @@
         
 
         // user
-        
         $user = stripslashes($_POST['user']);
         $user = mysqli_real_escape_string($conn,$user);
-        if (isset($_POST['user'])) {
-            
-        }
         
         // email
         $email = stripslashes($_POST['email']);
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo "Invalid email format";
+            echo "
+                <div class='alert alert-warning d-flex justify-content-center' role='alert'>
+                    invalid email format
+                </div>
+            ";
         }
         $email = mysqli_real_escape_string($conn,$email);
 
@@ -34,9 +34,37 @@
         $img_temp = $_FILES['signature']['tmp_name']; // img temprary file
         $img_seg = explode('.', $img_name); // img name segment
         $img_ext = strtolower(end($img_seg)); // get img extension to lower case
-        $img_unique = substr(md5(time()), 0 , 10).'.'.$img_ext; // create unique name
-        $img_upload = 'assets/images/signature/'.$img_unique; // img uploaded folder
-        move_uploaded_file($img_temp, $img_upload);
+        //$img_unique = substr(md5(time()), 0 , 10).'.'.$img_ext; // create unique name
+        $img_upload = 'assets/images/signature/'.$img_name; // img uploaded folder
+
+        $namequery = "SELECT username FROM tbl_user WHERE username = '$user'";
+        $namesql = mysqli_query($conn, $namequery);
+        if (mysqli_num_rows($namesql) > 0 ) {
+            echo "
+                <div class='alert alert-warning d-flex justify-content-center' role='alert'>
+                    username already exixts, try another
+                </div>
+            ";
+        } elseif ($img_size > 1048567) {
+            echo "
+                <div class='alert alert-warning d-flex justify-content-center' role='alert'>
+                    Image Size should be less then 1MB!
+                </div>
+            ";
+        } elseif(in_array($img_ext, $perrmitted) === false) {
+            echo "
+                <div class='alert alert-warning d-flex justify-content-center' role='alert'>
+                    You can upload only:-".implode(', ', $perrmitted)."
+                </div>
+            ";
+        } else{
+            move_uploaded_file($img_temp, $img_upload);
+            $query = "INSERT INTO tbl_user(username,email,password,signature) VALUES('$user','$email','$password','$img_name')";
+            $sql = mysqli_query($conn, $query);
+            header('Location: registration.php');
+        }
+
+        
         // img validation insert data
         // if ($img_size > 1048567) {
         //     echo "<span class='error'>Image Size should be less then 1MB!</span>";
@@ -46,10 +74,6 @@
         // } else{
             
         // }
-        
-        $query = "INSERT INTO tbl_user(username,email,password,signature) VALUES('$user','$email','$password','$img_name')";
-        $sql = mysqli_query($conn, $query);
-        header('Location: registration.php');
     }
 
 

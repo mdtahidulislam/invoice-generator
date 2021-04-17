@@ -274,6 +274,24 @@
                         </div>
                      </div>
                   </div>
+                  <!-- signature -->
+                  <div class="row">
+                     <div class="col-md-6">
+                     <?php 
+                        if (isset($_SESSION['username'])) {
+                           $username =   $_SESSION['username'];
+                        $sig = "SELECT signature FROM tbl_user WHERE username = '$username'";
+                        $sigsql = mysqli_query($conn, $sig);
+                        $sigresult = mysqli_fetch_assoc($sigsql);
+                     ?>
+                     <div class="signature">
+                        <img src="assets/images/signature/<?php echo $sigresult['signature']; ?>" alt="signature" class="img-fluid">
+                     </div>
+                     <?php
+                        }
+                     ?> 
+                     </div>
+                  </div>
                </div>
                <div class="col-md-3 col-sm-12">
                   <div class="sidebar">

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2021 at 01:43 PM
+-- Generation Time: Apr 17, 2021 at 06:28 AM
 -- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.15
+-- PHP Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -227,7 +227,7 @@ INSERT INTO `tbl_item` (`id`, `invnumber`, `username`, `item`, `quantity`, `rate
 CREATE TABLE `tbl_user` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `email` varchar(50) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `password` varchar(11) NOT NULL,
   `signature` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -239,7 +239,9 @@ CREATE TABLE `tbl_user` (
 INSERT INTO `tbl_user` (`id`, `username`, `email`, `password`, `signature`) VALUES
 (1, 'admin', 'admin@gmail.com', 'admin', ''),
 (2, 'tahidul', 'tituphy355@gmail.com', 'tahidul', 'zpc-logo.png'),
-(3, 'tahidul', 'tituphy355@gmail.com', 'tahidul', 'images.png');
+(3, 'tahidul', 'tituphy355@gmail.com', 'tahidul', 'images.png'),
+(4, 'aloadhar', 'tituphy355@gmail.com', 'aloadhar', 'download.jpg'),
+(5, 'ami', 'ami@gmail.com', 'ami', 'whiteboard.PNG');
 
 --
 -- Indexes for dumped tables
@@ -283,7 +285,7 @@ ALTER TABLE `tbl_item`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
