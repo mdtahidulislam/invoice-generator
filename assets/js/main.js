@@ -1,3 +1,13 @@
+// set width of res logo holder
+
+$(document).ready(function(){
+    $(window).resize(function(){
+        if (window.innerWidth < 767) {
+            $('.res-logo').width(window.innerWidth - 40);
+            $('.res-notes-terms').width(window.innerWidth - 40);
+        }
+    });
+});
 // appear image file after page refresh
 const fileinput = document.querySelector('#fileinput');
 fileinput.addEventListener('change', function () {
@@ -263,7 +273,6 @@ $(document).ready(function(){
     //         }
     //     });
     // });
-
 });
 
     

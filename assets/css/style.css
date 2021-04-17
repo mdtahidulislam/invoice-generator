@@ -1,32 +1,3 @@
-/*======================================================*/
-/*--------------------------------------------------------
-
-Usually, the font size in HTML is 16px or 1rem by default ( 16px = 1rem ).  
-Here in HTML, I have given Font Size 10px by default and here I have used REM as a Unit.  
-10px = 1rem.  
-
-I will give some more examples of px and rem, for example:-------
-1px   	=   .1rem
-2px		=	.2rem
-3px		=	.3rem
-4px		=	.4rem
-5px		=	.5rem
-6px 	= 	.6rem
-7px 	= 	.7rem
-8px 	= 	.8rem
-9px   	=   .9rem 
-10px  	=   1rem 
-15px 	=  	1.5rem 
-18px 	=  	1.8rem 
-20px 	= 	2rem
-27px 	= 	2.7rem;
-30px 	=  	3rem 
-35px 	=  	3.5rem
-
-----------------------------------------------------------*/
-/*=========================================================*/
-
-
 /*===================*/
 /*-- VARIABLES --*/
 /*===================*/
@@ -58,54 +29,6 @@ body {
 	overflow-x: hidden;
 }
 
-/*==============================*/
-/*-- REUSEBLE COMPONENTS --*/
-/*==============================*/
-.bg__color {
-	background: #eee;
-}
-
-.heading {
-	font-size: var(--heading);
-	font-family: ;
-	color: var(--primary-color);
-}
-
-.sub__heading {
-	font-size: var(--sub-heading);
-	font-family: ;
-	color: var(--primary-color);
-}
-
-.paragraph {
-	font-size: var(--paragraph);
-	font-family: ;
-	color: var(--primary-color);
-}
-
-.btn__primary {
-	padding: 1rem 1.5rem;
-	background: var(--primary-color);
-	color: var(--secondary-color);
-	font-size: var(--paragraph);
-}
-
-.btn__secondary {
-	padding: 1rem 1.5rem;
-	background: var(--primary-color);
-	color: var(--secondary-color);
-	font-size: var(--paragraph);
-}
-
-.btn__primary:hover {
-	background: #000;
-	color: var(--secondary-color);
-}
-
-.btn__secondary:hover {
-	background: #000;
-	color: var(--secondary-color);
-}
 
 .input-group-text {
     padding: 8px 12px;
@@ -137,6 +60,10 @@ section {
     border: 1px solid rgba(0,0,0,.1);
 	font-size: 14px;
 	color: #b7b7b7 !important;
+}
+
+input#paidamount {
+	border-right: 1px solid rgba(0,0,0,.1);
 }
 
 ::placeholder {
@@ -385,4 +312,13 @@ table.pdf-table td {
 
 input.form-control {
     font-size: 16px;
+}
+
+.btn {
+    font-size: 12px;
+}
+
+.modal-table-form table td {
+	padding-top: 1px;
+	padding-bottom: 1px;
 }

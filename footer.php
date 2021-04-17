@@ -14,16 +14,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <!-- for html to word -->
-	<script src="assets/js/filesaver-2.0.0.js"></script>
-	<script src="assets/js/jquery.wordexport.js"></script>
-  <script>
-    // $(document).ready(function($) {
-    //     $(".sendbtn").click(function(event) {
-    //         $(".inv-info").wordExport();
-    //     });
-    // });
-  </script>
 	<script src="assets/js/jquery.invoice.js"></script>
 	<script>
         jQuery(document).ready(function(){
@@ -48,7 +38,7 @@
     </script>
 	<script src="assets/js/main.js"></script>
 	<script>
-		$( function() {
+		$(document).ready( function() {
 			$('#date-datepicker').datepicker();
 			$('#due-datepicker').datepicker();
 		});

@@ -39,13 +39,13 @@
                               <i class="fas fa-times close-img"></i>
                            </div>
                            <div class="form-group">
-                              <textarea name="fromto" id="fromto" rows="2" class="form-control" placeholder="Who is this invoice from? (required)"></textarea>
+                              <textarea name="fromto" id="fromto" rows="2" class="form-control" placeholder="Who is this invoice from? (required)" required></textarea>
                            </div>
                            <div class="form-group">
                               <div class="row">
                                  <div class="col-sm-6">
                                     <label> Bill To</label>
-                                    <textarea type="text" name="billto" id="billto" class="form-control" placeholder="Who is this invoice to? (required)"></textarea>
+                                    <textarea type="text" name="billto" id="billto" class="form-control" placeholder="Who is this invoice to?" required></textarea>
                                  </div>
                                  <div class="col-sm-6">
                                     <label> Ship To</label>
@@ -101,9 +101,9 @@
                               </thead>
                               <tbody>
                                  <tr class="item-row" id="row">
-                                    <td width="350"><input class="form-control item" name="item[]" placeholder="Item" type="text"></td>
-                                    <td width="100"><input class="form-control qty" name="qty[]" placeholder="Quantity" type="text"></td>
-                                    <td width="150"><input class="form-control price" name="rate[]" placeholder="Rate" type="text"></td>
+                                    <td width="350"><input class="form-control item" name="item[]" placeholder="Item" type="text" required></td>
+                                    <td width="100"><input class="form-control qty" name="qty[]" placeholder="Quantity" type="text" required></td>
+                                    <td width="150"><input class="form-control price" name="rate[]" placeholder="Rate" type="text" required></td>
                                     <td class="text-right">$<span class="total">0.00</span></td>
                                     <td></td>
                                  </tr>

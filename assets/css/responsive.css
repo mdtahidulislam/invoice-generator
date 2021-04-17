@@ -228,8 +228,38 @@
 
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
 	table#dynamic_field {
 		width: 1000px;
-	}                        
+	}
+	
+	.res-logo,
+	.res-bill-ship,
+	.res-notes-terms,
+	.res-signature {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.res-logo td {
+		width: inherit !important;
+	}
+	.res-label {
+		margin-right: 0 !important;
+	}
+	.res-notes-terms > td {
+		width: 100% !important;
+	}
+	.res-scroll {
+		position: relative;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		white-space: nowrap;
+	}
+}
+
+@media (max-width: 425px) {
+	.signature {
+		text-align: left !important;
+	}
 }

@@ -69,7 +69,7 @@ if(!$mail->send()) {
                     <a href="download.php" class="btn btn-link btn-block btn-lg w-100 mb-4 inv-down">Download Invoice</a>
                     <hr class="mb-4">
                     <div class="my-invoic-btn text-center">
-                        <a href="#">My Invoices <span class="my-inv-num">
+                        <a href="download.php">My Invoices <span class="my-inv-num">
                           <?php
                               $username = $_SESSION['username'];
                               $inquery = "SELECT * FROM tbl_info WHERE username = '$username'";

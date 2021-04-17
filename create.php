@@ -11,10 +11,11 @@
         $img_name = $_FILES['logo']['name']; // img name
         $img_size = $_FILES['logo']['size']; // img size
         $img_temp = $_FILES['logo']['tmp_name']; // img temprary file
-        $img_seg = explode('.', $img_name); // img name segment
-        $img_ext = strtolower(end($img_seg)); // get img extension to lower case
-        $img_unique = substr(md5(time()), 0 , 10).'.'.$img_ext; // create unique name
-        $img_upload = 'assets/images/uploads/'.$img_unique; // img uploaded folder
+        //$img_seg = explode('.', $img_name); // img name segment
+        //$img_ext = strtolower(end($img_seg)); // get img extension to lower case
+        //$img_unique = substr(md5(time()), 0 , 10).'.'.$img_ext; // create unique name
+        //$img_upload = 'assets/images/uploads/'.$img_unique; // img uploaded folder
+        $img_upload = 'assets/images/uploads/'.$img_name; // img uploaded folder
         move_uploaded_file($img_temp, $img_upload);
 
         // get invoice number
