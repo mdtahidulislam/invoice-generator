@@ -35,7 +35,9 @@ body {
     font-size: 14px;
 	height: 38px;
 }
-
+.btn {
+    font-size: 14px;
+}
 /*==============================*/
 /*-- REUSEBLE COMPONENTS --*/
 /*==============================*/
@@ -97,14 +99,16 @@ input#paidamount {
 	cursor: pointer;
 }
 
-.preview {
+.preview,
+.local-img {
     position: relative;
     max-width: 200px;
     max-height: 150px;
     margin-bottom: 15px;
 }
 
-.preview-img {
+.preview-img,
+.local-img-preview {
 	max-width: 100%;
 	height: auto;
 }
@@ -267,6 +271,20 @@ input#subtotal {
     color: #000 !important;
 }
 
+
+/* signature img size */
+.signature {
+    max-width: 250px;
+	height: 75px;
+	margin-left: auto;
+}
+.signature img {
+    height: 100%;
+}
+tr.res-signature td {
+    vertical-align: middle;
+}
+
 /* ========================================== */
 .table td, .table th {
 	border: 0;
@@ -314,11 +332,19 @@ input.form-control {
     font-size: 16px;
 }
 
-.btn {
-    font-size: 12px;
-}
-
 .modal-table-form table td {
 	padding-top: 1px;
 	padding-bottom: 1px;
+}
+
+/* login & registration page css */
+.login-area {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.registration-from label {
+    margin: 0;
 }

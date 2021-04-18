@@ -66,3 +66,10 @@ tr.item-row.item-head {
 .modal {
     background: #fff !important;
 }
+
+
+tr.item-row.item-head,
+.table-hover tbody tr.item-head:hover {
+    background: #393939 !important;
+    color: #fff !important;
+}

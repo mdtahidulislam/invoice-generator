@@ -1,13 +1,19 @@
 // set width of res logo holder
-
 $(document).ready(function(){
     $(window).resize(function(){
-        if (window.innerWidth < 767) {
+        if (window.innerWidth < 768) {
             $('.res-logo').width(window.innerWidth - 40);
             $('.res-notes-terms').width(window.innerWidth - 40);
+            $('.res-signature').width(window.innerWidth - 40);
         }
     });
 });
+
+// get img for print page
+$(document).ready(function(){
+    $('.local-img-preview').attr('src', localStorage.getItem('getImg'))
+});
+
 // appear image file after page refresh
 const fileinput = document.querySelector('#fileinput');
 fileinput.addEventListener('change', function () {

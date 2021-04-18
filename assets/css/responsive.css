@@ -262,4 +262,7 @@
 	.signature {
 		text-align: left !important;
 	}
+	tr.res-signature td {
+		margin: 0 auto;
+	}
 }

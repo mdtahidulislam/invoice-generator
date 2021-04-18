@@ -19,15 +19,15 @@
    	<link rel="stylesheet" href="assets/css/bootstrap.css">
    	<link rel="stylesheet" href="assets/css/datatable.css">
 	<link rel="stylesheet" href="assets/css/default.css" />
+	<link rel="stylesheet" href="assets/css/responsive.css" media="screen"/>
 	<link rel="stylesheet" href="assets/css/style.css" />
-	<link rel="stylesheet" href="assets/css/responsive.css" />
 	<link rel="stylesheet" href="assets/css/print.css" media="print"/>
 </head>
 
 <body>
 
 	<!--========================== START HEADER SECTION ==========================-->
-	<header class="header">
+	<!-- <header class="header">
 		<div class="container">
          <div class="row">
             <div class="col-md-12 d-flex justify-content-center">
@@ -35,5 +35,5 @@
             </div>
          </div>
       </div>
-	</header>
+	</header> -->
 	<!--========================== END HEADER SECTION ==========================-->

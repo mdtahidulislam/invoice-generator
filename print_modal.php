@@ -23,9 +23,16 @@
                         <td width="650px">
                            <table class="table">
                               <tr>
-                                    <td>
-                                       <img src="<?php echo $inforesult['logo'] ?>" alt="Logo">
-                                    </td>
+                                 <td>
+                                    <?php 
+                                       $logoquery = "SELECT logo FROM tbl_logo WHERE username = '$username'";
+                                       $logosql = mysqli_query($conn, $logoquery);
+                                       $logoresult = mysqli_fetch_assoc($logosql);
+                                    ?>
+                                    <div class="local-img" >
+                                       <img class="img-fluid" src="<?php echo $logoresult['logo']; ?>">
+                                    </div>
+                                 </td>
                               </tr>
                               <tr class="res-bill-ship">
                                     <td>Bill To: <br><b><?php echo $inforesult['billto']; ?></b></td>

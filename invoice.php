@@ -26,7 +26,7 @@
 		<div class="container">
 			<form action="create.php" class="invoice" method="POST" enctype="multipart/form-data">
             <div class="row">
-               <div class="col-md-9 col-sm-12 inv-info">
+               <div class="col-lg-9 col-md-12 mb-5 inv-info">
                   <div class="row">
                      <div class="col">
                         <div class="inv-info__contact">
@@ -36,7 +36,7 @@
                            </div>
                            <div class="preview d-none" id="preview">
                               <img class="preview-img" src="">
-                              <i class="fas fa-times close-img"></i>
+                              <!-- <i class="fas fa-times close-img"></i> -->
                            </div>
                            <div class="form-group">
                               <textarea name="fromto" id="fromto" rows="2" class="form-control" placeholder="Who is this invoice from? (required)" required></textarea>
@@ -284,7 +284,7 @@
                         $sigsql = mysqli_query($conn, $sig);
                         $sigresult = mysqli_fetch_assoc($sigsql);
                      ?>
-                     <div class="signature">
+                     <div class="signature ml-0">
                         <img src="assets/images/signature/<?php echo $sigresult['signature']; ?>" alt="signature" class="img-fluid">
                      </div>
                      <?php
@@ -293,7 +293,7 @@
                      </div>
                   </div>
                </div>
-               <div class="col-md-3 col-sm-12">
+               <div class="col-lg-3 col-md-12">
                   <div class="sidebar">
                      <button type="submit" name="sendbtn" class="sendbtn btn btn-success btn-lg w-100 mb-4"> Save Invoice</button>
                      <a href="send.php" class="btn btn-success btn-block btn-lg w-100 mb-4 inv-down">Send Invoice</a>
