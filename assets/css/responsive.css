@@ -229,10 +229,13 @@
 }
 
 @media (max-width: 768px) {
-	table#dynamic_field {
-		width: 1000px;
+	tr.item-row td:nth-child(1) {
+		width: 250px;
 	}
-	
+	tr.note-term-row td {
+		padding: 0;
+	}
+	.note-term-row,
 	.res-logo,
 	.res-bill-ship,
 	.res-notes-terms,
@@ -240,7 +243,9 @@
 		display: flex;
 		flex-direction: column;
 	}
-
+	.note-term-row >td {
+		width: 100%;
+	}
 	.res-logo td {
 		width: inherit !important;
 	}
@@ -259,6 +264,9 @@
 }
 
 @media (max-width: 425px) {
+	table#dynamic_field {
+		width: 450px;
+	}
 	.signature {
 		text-align: left !important;
 	}

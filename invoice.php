@@ -28,16 +28,40 @@
             <div class="row">
                <div class="col-lg-9 col-md-12 mb-5 inv-info">
                   <div class="row">
-                     <div class="col">
+                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="inv-info__contact">
-                           <div class="inv-file-input form-group">
+                           <!-- <div class="inv-file-input form-group">
                               <input type="file" id="fileinput" name="logo" class="inv-file-input">
                               <label class="inv-file-label" for="customFile">+ Add Your Logo</label>
-                           </div>
-                           <div class="preview d-none" id="preview">
+                           </div> -->
+                           <!-- <div class="preview d-none" id="preview">
                               <img class="preview-img" src="">
-                              <!-- <i class="fas fa-times close-img"></i> -->
-                           </div>
+                              <i class="fas fa-times close-img"></i>
+                           </div> -->
+                           <?php
+                              $username = $_SESSION['username'];
+                              $logoquery = "SELECT logo FROM tbl_logo WHERE username = '$username'";
+                              $logosql = mysqli_query($conn, $logoquery);
+                              $logoresult = mysqli_fetch_assoc($logosql);
+                              if (empty($logoresult['logo'])) {
+                           ?>
+                              <div class="inv-file-input form-group">
+                                 <input type="file" id="fileinput" name="logo" class="inv-file-input">
+                                 <label class="inv-file-label" for="customFile">+ Add Your Logo</label>
+                              </div>
+                              <div class="preview d-none" id="preview">
+                                 <img class="preview-img" src="">
+                                 <i class="fas fa-times close-img"></i>
+                              </div>
+                           <?php
+                              } else {
+                           ?>   
+                              <div class="local-img" >
+                                 <img class="img-fluid" src="<?php echo $logoresult['logo']; ?>">
+                              </div>
+                           <?php      
+                              }
+                           ?>
                            <div class="form-group">
                               <textarea name="fromto" id="fromto" rows="2" class="form-control" placeholder="Who is this invoice from? (required)" required></textarea>
                            </div>
@@ -55,7 +79,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col">
+                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="inv-title">
                            <h1 class="mb-3 text-right">INVOICE</h1>
                            <div class="inv-number">
@@ -86,16 +110,16 @@
                      </div>
                   </div>
                   <!-- items holder -->
-                  <div class="row">
-                     <div class="col">
-                        <div class="table-responsive">
+                  <!-- <div class="row">
+                     <div class="col"> -->
+                        <div class="res-scroll">
                            <table class="table" id="dynamic_field">
                               <thead>
                                  <tr class="item-row">
                                     <th>Item</th>
                                     <th>Quantity</th>
                                     <th>Rate</th>
-                                    <th class="total-th">Total</th>
+                                    <th class="total-th text-right">Total</th>
                                     <th></th>
                                  </tr>
                               </thead>
@@ -114,179 +138,193 @@
                                  </tr>
                               </tbody>
                            </table>
-                           <table>
-                              <tr>
-                                 <td width="50%">
-                                    <table width="100%">
-                                       <tr>
-                                          <td>
-                                             <div class="notes-holder">
-                                                <div class="form-group mb-5">
-                                                   <label>Notes</label>
-                                                   <textarea name="notes" id="notes" rows="2" class="form-control" placeholder="Notes - any relevant information not already covered"></textarea>
-                                                </div>
-                                             </div>
-                                          </td>
-                                       </tr>
-                                       <tr>
-                                          <td>
-                                             <div class="terms-holder">
-                                                <div class="form-group">
-                                                   <label>Terms</label>
-                                                   <textarea name="terms" id="terms" rows="2" class="form-control" placeholder="Terms and conditions - late fees, payment methods, delivery schedule"></textarea>
-                                                </div>
-                                             </div>
-                                          </td>
-                                       </tr>
-                                    </table>
-                                 </td>
-                                 <td width="50%">
-                                    <table class="table">
-                                       <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-right">Sub Total</td>
-                                          <!-- <td class="text-right">$<span id="subtotal">0.00</span></td> -->
-                                          <td class="text-right">$ <input type="text" name="subtotal" id="subtotal"> 
-                                       </tr>
-                                       <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-right">Tax</td>
-                                          <td>
-                                             <div class="input-group tax mb-3">
-                                                <input type="number" name="taxpercent" id="tax" dir="rtl" placeholder="0" autocomplete="off" class="tax-input form-control">
-                                                <div class="input-group-prepend ">
-                                                   <span class="input-group-text tax-type-dollar d-none">$</span>
-                                                </div>
-                                                <div class="input-group-append">
-                                                   <span class="input-group-text tax-type-prcent">%</span>
-                                                </div>
-                                                <div id="tax-type" class="input-group-append">
-                                                   <button class="btn dropdown-toggle tax-type-btn" type="button" id="tax-type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                   </button>
-                                                   <ul class="dropdown-menu dropdown-menu-right" id="tax-type-selector" aria-labelledby="dropdownMenuButton">
-                                                      <li class="dropdown-item">Flat($)</li>
-                                                      <li class="dropdown-item active">Percent(%)</li>
-                                                   </ul>
-                                                </div>
-                                             </div>
-                                          </td>
-                                       </tr>
-                                       <tr class="input-type-row d-none">
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-right">Discount</td>
-                                          <td>
-                                             <!-- <input class="form-control" id="discount" value="0" type="text"> -->
-                                             <div class="input-group discount mb-3">
-                                                <input type="number" name="discountpercent" id="discount" dir="rtl" placeholder="0" autocomplete="off" class="discount-input form-control">
-                                                <div class="input-group-prepend ">
-                                                   <span class="input-group-text discount-type-dollar d-none">$</span>
-                                                </div>
-                                                <div class="input-group-append">
-                                                   <span class="input-group-text discount-type-prcent">%</span>
-                                                </div>
-                                                <div id="discount-type" class="input-group-append">
-                                                   <button class="btn dropdown-toggle tax-type-btn" type="button" id="discount-type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                   </button>
-                                                   <ul class="dropdown-menu dropdown-menu-right" id="discount-type-selector" aria-labelledby="dropdownMenuButton">
-                                                      <li class="dropdown-item">Flat($)</li>
-                                                      <li class="dropdown-item active">Percent(%)</li>
-                                                   </ul>
-                                                </div>
-                                             </div>
-                                          </td>
-                                          <td>
-                                             <button type="button" name="remove" id="" class="btn delete-btn">&times;</button>
-                                          </td>
-                                       </tr>
-                                       <tr class="input-type-row d-none">
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-right">Shipping</td>
-                                          <td>
-                                             <div class="input-group shipping mb-3">
-                                                <input type="number" name="shippingpercent" id="shipping" dir="rtl" placeholder="0" autocomplete="off" class="shipping-input form-control">
-                                                <div class="input-group-prepend ">
-                                                   <span class="input-group-text shipping-type-dollar d-none">$</span>
-                                                </div>
-                                                <div class="input-group-append">
-                                                   <span class="input-group-text shipping-type-prcent">%</span>
-                                                </div>
-                                                <div id="shipping-type" class="input-group-append">
-                                                   <button class="btn dropdown-toggle tax-type-btn" type="button" id="shipping-type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                   </button>
-                                                   <ul class="dropdown-menu dropdown-menu-right" id="shipping-type-selector" aria-labelledby="dropdownMenuButton">
-                                                      <li class="dropdown-item">Flat($)</li>
-                                                      <li class="dropdown-item active">Percent(%)</li>
-                                                   </ul>
-                                                </div>
-                                             </div>
-                                          </td>
-                                          <td>
-                                             <button type="button" name="remove" id="" class="btn delete-btn">&times;</button>
-                                          </td>
-                                       </tr>
-                                       <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td width="195" align="right">
-                                             <button type="button" id="" class="btn btn-primary show-btn mb-4">+ Discount</button>
-                                             <button type="button" id="" class="btn btn-primary show-btn mb-4">+ Shipping</button>
-                                          </td>
-                                          <td width="20"></td>
-                                       </tr>
-                                       <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-right">Total</td>
-                                          <!-- <td class="text-right">$<span id="grandTotal">0</span></td> -->
-                                          <td class="text-right">$ <input type="text" name="grandtotal" id="grandTotal"> </td>
-                                       </tr>
-                                       <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-right">Amount Paid</td>
-                                          <td class="text-right">
-                                             <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                   <span class="input-group-text" id="payment-input-text">$</span>
-                                                </div>
-                                                <input type="text" name="paidamount" id="paidamount" class="payment-input form-control" placeholder="0" >
-                                             </div>
-                                          </td>
-                                          <td></td>
-                                       </tr>
-                                       <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-right">Balance Due</td>
-                                          <!-- <td class="text-right">$<span class="mb-3" id="duebalance">$0.00</span></td> -->
-                                          <td class="text-right">$ <input type="text" name="duebalance" id="duebalance" readonly></td>
-                                          <td></td>
-                                       </tr>
-                                    </table>
-                                 </td>
-                              </tr>
-                           </table>
                         </div>
-                     </div>
-                  </div>
+                     <!-- </div>
+                  </div> -->
+                  <!-- total price calculation -->
+                  
+                  <table class="table res-inv-note">
+                     <tbody>
+                        <tr>
+                           <td colspan="2" class="p-0">
+                              <table class="table">
+                                 <tbody>
+                                    <tr class="note-term-row">
+                                       <td width="50%">
+                                          <table width="100%">
+                                             <tr>
+                                                <td>
+                                                   <div class="notes-holder">
+                                                      <div class="form-group mb-5">
+                                                         <label>Notes</label>
+                                                         <textarea name="notes" id="notes" rows="2" class="form-control" placeholder="Notes - any relevant information not already covered"></textarea>
+                                                      </div>
+                                                   </div>
+                                                </td>
+                                             </tr>
+                                             <tr>
+                                                <td>
+                                                   <div class="terms-holder">
+                                                      <div class="form-group">
+                                                         <label>Terms</label>
+                                                         <textarea name="terms" id="terms" rows="2" class="form-control" placeholder="Terms and conditions - late fees, payment methods, delivery schedule"></textarea>
+                                                      </div>
+                                                   </div>
+                                                </td>
+                                             </tr>
+                                          </table>
+                                       </td>
+                                       <td width="50%">
+                                          <table class="table">
+                                             <tr>
+                                                <!-- <td></td>
+                                                <td></td> -->
+                                                <td class="text-right pr-3">Sub Total</td>
+                                                <!-- <td class="text-right">$<span id="subtotal">0.00</span></td> -->
+                                                <td class="text-right">$ <input type="text" name="subtotal" id="subtotal" class="text-right"> 
+                                             </tr>
+                                             <tr>
+                                                <!-- <td></td>
+                                                <td></td> -->
+                                                <td class="text-right pr-3">Tax</td>
+                                                <td>
+                                                   <div class="input-group tax mb-3">
+                                                      <input type="number" name="taxpercent" id="tax" dir="rtl" placeholder="0" autocomplete="off" class="tax-input form-control">
+                                                      <div class="input-group-prepend ">
+                                                         <span class="input-group-text tax-type-dollar d-none">$</span>
+                                                      </div>
+                                                      <div class="input-group-append">
+                                                         <span class="input-group-text tax-type-prcent">%</span>
+                                                      </div>
+                                                      <div id="tax-type" class="input-group-append">
+                                                         <button class="btn dropdown-toggle tax-type-btn" type="button" id="tax-type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                         </button>
+                                                         <ul class="dropdown-menu dropdown-menu-right" id="tax-type-selector" aria-labelledby="dropdownMenuButton">
+                                                            <li class="dropdown-item">Flat($)</li>
+                                                            <li class="dropdown-item active">Percent(%)</li>
+                                                         </ul>
+                                                      </div>
+                                                   </div>
+                                                </td>
+                                             </tr>
+                                             <tr class="input-type-row d-none">
+                                                <!-- <td></td>
+                                                <td></td> -->
+                                                <td class="text-right pr-3">Discount</td>
+                                                <td>
+                                                   <!-- <input class="form-control" id="discount" value="0" type="text"> -->
+                                                   <div class="input-group discount mb-3">
+                                                      <input type="number" name="discountpercent" id="discount" dir="rtl" placeholder="0" autocomplete="off" class="discount-input form-control">
+                                                      <div class="input-group-prepend ">
+                                                         <span class="input-group-text discount-type-dollar d-none">$</span>
+                                                      </div>
+                                                      <div class="input-group-append">
+                                                         <span class="input-group-text discount-type-prcent">%</span>
+                                                      </div>
+                                                      <div id="discount-type" class="input-group-append">
+                                                         <button class="btn dropdown-toggle tax-type-btn" type="button" id="discount-type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                         </button>
+                                                         <ul class="dropdown-menu dropdown-menu-right" id="discount-type-selector" aria-labelledby="dropdownMenuButton">
+                                                            <li class="dropdown-item">Flat($)</li>
+                                                            <li class="dropdown-item active">Percent(%)</li>
+                                                         </ul>
+                                                      </div>
+                                                   </div>
+                                                </td>
+                                                <td>
+                                                   <button type="button" name="remove" id="" class="btn delete-btn">&times;</button>
+                                                </td>
+                                             </tr>
+                                             <tr class="input-type-row d-none">
+                                                <!-- <td></td>
+                                                <td></td> -->
+                                                <td class="text-right pr-3">Shipping</td>
+                                                <td>
+                                                   <div class="input-group shipping mb-3">
+                                                      <input type="number" name="shippingpercent" id="shipping" dir="rtl" placeholder="0" autocomplete="off" class="shipping-input form-control">
+                                                      <div class="input-group-prepend ">
+                                                         <span class="input-group-text shipping-type-dollar d-none">$</span>
+                                                      </div>
+                                                      <div class="input-group-append">
+                                                         <span class="input-group-text shipping-type-prcent">%</span>
+                                                      </div>
+                                                      <div id="shipping-type" class="input-group-append">
+                                                         <button class="btn dropdown-toggle tax-type-btn" type="button" id="shipping-type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                         </button>
+                                                         <ul class="dropdown-menu dropdown-menu-right" id="shipping-type-selector" aria-labelledby="dropdownMenuButton">
+                                                            <li class="dropdown-item">Flat($)</li>
+                                                            <li class="dropdown-item active">Percent(%)</li>
+                                                         </ul>
+                                                      </div>
+                                                   </div>
+                                                </td>
+                                                <td>
+                                                   <button type="button" name="remove" id="" class="btn delete-btn">&times;</button>
+                                                </td>
+                                             </tr>
+                                             <tr>
+                                                <!-- <td></td>
+                                                <td></td> -->
+                                                <td></td>
+                                                <td width="195" align="right">
+                                                   <button type="button" id="" class="btn btn-primary show-btn mb-4">+ Discount</button>
+                                                   <button type="button" id="" class="btn btn-primary show-btn mb-4">+ Shipping</button>
+                                                </td>
+                                             </tr>
+                                             <tr>
+                                                <!-- <td></td>
+                                                <td></td> -->
+                                                <td class="text-right pr-3">Total</td>
+                                                <!-- <td class="text-right">$<span id="grandTotal">0</span></td> -->
+                                                <td class="text-right">$ <input type="text" name="grandtotal" id="grandTotal"> </td>
+                                             </tr>
+                                             <tr>
+                                                <!-- <td></td>
+                                                <td></td> -->
+                                                <td class="text-right pr-3">Amount Paid</td>
+                                                <td class="text-right">
+                                                   <div class="input-group mb-3">
+                                                      <div class="input-group-prepend">
+                                                         <span class="input-group-text" id="payment-input-text">$</span>
+                                                      </div>
+                                                      <input type="text" name="paidamount" id="paidamount" class="payment-input form-control" placeholder="0" >
+                                                   </div>
+                                                </td>
+                                                <!-- <td></td> -->
+                                             </tr>
+                                             <tr>
+                                                <!-- <td></td>
+                                                <td></td> -->
+                                                <td class="text-right pr-3">Balance Due</td>
+                                                <!-- <td class="text-right">$<span class="mb-3" id="duebalance">$0.00</span></td> -->
+                                                <td class="text-right">$ <input type="text" name="duebalance" id="duebalance" readonly></td>
+                                                <!-- <td></td> -->
+                                             </tr>
+                                          </table>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
                   <!-- signature -->
                   <div class="row">
                      <div class="col-md-6">
                      <?php 
-                        if (isset($_SESSION['username'])) {
-                           $username =   $_SESSION['username'];
-                        $sig = "SELECT signature FROM tbl_user WHERE username = '$username'";
+                        $username =   $_SESSION['username'];
+                        $sig = "SELECT * FROM tbl_user WHERE username = '$username'";
                         $sigsql = mysqli_query($conn, $sig);
                         $sigresult = mysqli_fetch_assoc($sigsql);
+                        if (!empty($sigresult['signature'])) {
                      ?>
-                     <div class="signature ml-0">
-                        <img src="assets/images/signature/<?php echo $sigresult['signature']; ?>" alt="signature" class="img-fluid">
-                     </div>
+                        <div class="signature ml-0">
+                           <img src="assets/images/signature/<?php echo $sigresult['signature']; ?>" alt="signature" class="img-fluid">
+                           <hr>
+                           <p class="mb-0"><?php echo $sigresult['company']; ?></p>
+                           <p class="mb-0"><?php echo $sigresult['mobile']; ?></p>
+                        </div>
                      <?php
                         }
                      ?> 

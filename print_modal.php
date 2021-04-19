@@ -256,15 +256,18 @@
                      <tr class="res-signature">
                         <td>From To: <b><?php echo $inforesult['fromto']; ?></b></td>
                         <td>
-                           <?php 
-                              if (isset($_SESSION['username'])) {
-                                 $username =   $_SESSION['username'];
-                              $sig = "SELECT signature FROM tbl_user WHERE username = '$username'";
+                           <?php
+                              $username =   $_SESSION['username'];
+                              $sig = "SELECT * FROM tbl_user WHERE username = '$username'";
                               $sigsql = mysqli_query($conn, $sig);
                               $sigresult = mysqli_fetch_assoc($sigsql);
+                              if (!empty($sigresult['signature'])) {
                            ?>
                            <div class="signature text-right">
                               <img src="assets/images/signature/<?php echo $sigresult['signature']; ?>" alt="signature" class="img-fluid">
+                              <hr>
+                              <p class="mb-0"><?php echo $sigresult['company']; ?></p>
+                              <p class="mb-0"><?php echo $sigresult['mobile']; ?></p>
                            </div>
                            <?php
                               }

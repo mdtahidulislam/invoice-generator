@@ -1,50 +1,4 @@
-// set width of res logo holder
-$(document).ready(function(){
-    $(window).resize(function(){
-        if (window.innerWidth < 768) {
-            $('.res-logo').width(window.innerWidth - 40);
-            $('.res-notes-terms').width(window.innerWidth - 40);
-            $('.res-signature').width(window.innerWidth - 40);
-        }
-    });
-});
 
-// get img for print page
-$(document).ready(function(){
-    $('.local-img-preview').attr('src', localStorage.getItem('getImg'))
-});
-
-// appear image file after page refresh
-const fileinput = document.querySelector('#fileinput');
-fileinput.addEventListener('change', function () {
-    const reader = new FileReader();
-    reader.addEventListener('load', () => {
-        localStorage.setItem('getImg', reader.result);
-        const getImgUrl = localStorage.getItem('getImg');
-        if(getImgUrl){
-            document.querySelector('.preview-img').setAttribute('src', getImgUrl);
-        }
-    });
-    reader.readAsDataURL(this.files[0]);
-});
-document.addEventListener('DOMContentLoaded', () => {
-    const getImgUrl = localStorage.getItem('getImg');
-    if(getImgUrl){
-        let invFileInput = document.querySelector('.inv-file-input')
-        let preview = document.querySelector('#preview');
-        let imgTag = document.querySelector('.preview-img')
-        let closeImg = document.querySelector('.close-img')
-        imgTag.setAttribute('src', getImgUrl);
-        if (imgTag.src !== '') {
-            invFileInput.classList.add('d-none');
-            preview.classList.remove('d-none');
-            closeImg.addEventListener('click', () => {
-                invFileInput.classList.remove('d-none');
-                preview.classList.add('d-none');
-            });
-        }
-    }
-});
 $(document).ready(function(){
     // file name show
     $('.inv-file-input').on('change',  function(e){
@@ -279,6 +233,55 @@ $(document).ready(function(){
     //         }
     //     });
     // });
+});
+
+// set width of res logo holder
+$(document).ready(function(){
+    $(window).resize(function(){
+        if (window.innerWidth < 768) {
+            $('.res-logo').width(window.innerWidth - 40);
+            $('.res-notes-terms').width(window.innerWidth - 40);
+            // $('.res-inv-note').width(window.innerWidth - 40);
+            $('.res-signature').width(window.innerWidth - 40);
+        }
+    });
+});
+
+// get img for print page
+$(document).ready(function(){
+    $('.local-img-preview').attr('src', localStorage.getItem('getImg'))
+});
+
+// appear image file after page refresh
+const fileinput = document.querySelector('#fileinput');
+fileinput.addEventListener('change', function () {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+        localStorage.setItem('getImg', reader.result);
+        const getImgUrl = localStorage.getItem('getImg');
+        if(getImgUrl){
+            document.querySelector('.preview-img').setAttribute('src', getImgUrl);
+        }
+    });
+    reader.readAsDataURL(this.files[0]);
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const getImgUrl = localStorage.getItem('getImg');
+    if(getImgUrl){
+        let invFileInput = document.querySelector('.inv-file-input')
+        let preview = document.querySelector('#preview');
+        let imgTag = document.querySelector('.preview-img')
+        let closeImg = document.querySelector('.close-img')
+        imgTag.setAttribute('src', getImgUrl);
+        if (imgTag.src !== '') {
+            invFileInput.classList.add('d-none');
+            preview.classList.remove('d-none');
+            closeImg.addEventListener('click', () => {
+                invFileInput.classList.remove('d-none');
+                preview.classList.add('d-none');
+            });
+        }
+    }
 });
 
     

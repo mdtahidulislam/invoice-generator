@@ -38,6 +38,10 @@ body {
 .btn {
     font-size: 14px;
 }
+
+tr {
+    white-space: nowrap;
+}
 /*==============================*/
 /*-- REUSEBLE COMPONENTS --*/
 /*==============================*/
@@ -271,11 +275,14 @@ input#subtotal {
     color: #000 !important;
 }
 
+.notes-holder,
+.terms-holder {
+	word-break: break-word;
+}
 
 /* signature img size */
 .signature {
     max-width: 250px;
-	height: 75px;
 	margin-left: auto;
 }
 .signature img {
@@ -299,7 +306,9 @@ tr.res-signature td {
 }
 
 /* ========================================= login page css */
-
+.modal.show {
+	padding-left: 4px;
+}
 .modal-dialog {
 	max-width: 95vw;
 	/* top: -18px; */
